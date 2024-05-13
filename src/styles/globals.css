@@ -2,32 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+
+
+
+*{
+  font-family: 'Poppins',sans-serif;
+  box-sizing: border-box;
+  /*overflow-x: hidden;*/
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+body,html{
+  height: 100vh;
+  width: 100%;
+}
+.swiper {
+  width: 100%;
+  height: 100%;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.home-slide{
+  filter: contrast(100%) hue-rotate(8deg);
+}
+.home-slide:before{
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*z-index: 100;*/
+}
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
