@@ -198,7 +198,7 @@ const BaseLayout = ({
               <Navbar />
             </header>
 
-            <main id="main" className="relative min-h-60vh">
+            <main id="main" className="relative min-h-[50vh]">
               {children}
             </main>
             <div className="max-w-full">
