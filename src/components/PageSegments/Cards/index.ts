@@ -1,8 +1,4 @@
-import EventsCards from "./EventsCards";
+import EventCard from "./EventCard";
 import FormationCards from "./FormationCards";
 
-
-export {
-    EventsCards,
-    FormationCards
-}
+export { EventCard, FormationCards };
