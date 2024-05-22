@@ -125,3 +125,12 @@ html {
 .swiper-pagination-bullet-active {
   background-color: #a9bf16 !important;
 }
+
+.markdown > * {
+  all: revert;
+}
+
+.markdown > a {
+  text-decoration: underline;
+  color: #475a23;
+}
