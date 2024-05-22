@@ -12,7 +12,7 @@ const HeroSection = () => {
         backgroundBlendMode: "darken",
       }}
     >
-      <p className={"z-[100] text-white text-3xl font-bold"}>About Us</p>
+      <p className={"text-white text-3xl font-bold"}>About Us</p>
     </div>
   );
 };
