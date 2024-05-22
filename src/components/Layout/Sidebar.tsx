@@ -47,7 +47,9 @@ export default function Sidebar() {
         <SheetHeader>
           <div className="w-full flex flex-col pb-4 items-center justify-center">
             <LanguageSwitcher />
-            <SearchBar />
+            <div className="md:hidden">
+              <SearchBar />
+            </div>
           </div>
         </SheetHeader>
 
