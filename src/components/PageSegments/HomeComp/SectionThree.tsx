@@ -34,8 +34,9 @@ const SectionThree = () => {
             href: "/",
             desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
           },
-        ].map((program) => (
+        ].map((program, idx) => (
           <FormationCards
+            key={idx}
             title={program.title}
             href={program.href}
             desc={program.desc}

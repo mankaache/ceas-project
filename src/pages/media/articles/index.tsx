@@ -111,8 +111,11 @@ const FeaturedArticle = ({ article }: { article: IArticle }) => (
     </div>
     <div className="details w-full md:w-[48%] flex flex-col items-start justify-between gap-4">
       <div className="tags w-full flex items-start gap-2 justify-start">
-        {article.tags.map((tag) => (
-          <Button className="flex items-center justify-center gap-2 text-white capitalize">
+        {article.tags.map((tag, idx) => (
+          <Button
+            key={idx}
+            className="flex items-center justify-center gap-2 text-white capitalize"
+          >
             <FaTags />
             {tag}
           </Button>
@@ -152,8 +155,11 @@ const Article = ({ article }: { article: IArticle }) => (
     </div>
     <div className="details w-full flex flex-col items-start justify-between gap-4">
       <div className="tags w-full flex items-start gap-2 justify-start">
-        {article.tags.map((tag) => (
-          <Button className="flex items-center justify-center gap-2 text-white capitalize">
+        {article.tags.map((tag, idx) => (
+          <Button
+            key={idx}
+            className="flex items-center justify-center gap-2 text-white capitalize"
+          >
             <FaTags />
             {tag}
           </Button>

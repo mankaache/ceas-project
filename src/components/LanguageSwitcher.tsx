@@ -45,7 +45,7 @@ export default function LanguageSwitcher() {
   React.useEffect(() => {
     if (savedLocale && locale != savedLocale)
       router.replace(router.pathname, router.pathname, { locale: savedLocale });
-  }, [savedLocale]);
+  }, [savedLocale, locale, router]);
 
   React.useEffect(() => {
     if (error)

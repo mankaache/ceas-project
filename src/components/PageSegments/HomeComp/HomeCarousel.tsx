@@ -44,8 +44,9 @@ export default function HomeCarousel() {
           { image: commonImages.slide2 },
           { image: commonImages.slide3 },
           { image: commonImages.slide4 },
-        ].map((item) => (
+        ].map((item, idx) => (
           <SwiperSlide
+            key={idx}
             className={
               "bg-center home-slide text-white bg-cover bg-no-repeat w-full h-full"
             }
