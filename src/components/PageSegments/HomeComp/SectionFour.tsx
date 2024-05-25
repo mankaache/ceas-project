@@ -44,8 +44,9 @@ const SectionFour = () => {
             linkText: "See Internship offers",
             href: "/events/internship",
           },
-        ].map((event) => (
+        ].map((event, idx) => (
           <EventCard
+            key={idx}
             title={event.title}
             linkText={event.linkText}
             href={event.href}

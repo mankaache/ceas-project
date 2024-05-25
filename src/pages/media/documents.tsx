@@ -9,7 +9,7 @@ const Documents = () => {
   const [category, setCategory] = React.useState<
     "documentation" | "report" | "journal" | "all"
   >("all");
-  const DOCS: {
+  const DOCSObj: {
     title: string;
     description: string;
     href: string;
@@ -57,6 +57,8 @@ const Documents = () => {
     },
   ];
 
+  const DOCS = React.useMemo(() => DOCSObj, []);
+
   const filteredDocs = React.useMemo(() => {
     return DOCS.filter((doc) => {
       if (category === "all") {
@@ -67,7 +69,7 @@ const Documents = () => {
       }
       return false;
     });
-  }, [category]);
+  }, [category, DOCS]);
   return (
     <BaseLayout>
       <div className="w-full">
@@ -81,6 +83,7 @@ const Documents = () => {
               {["all", "documentation", "report", "journal", "other"].map(
                 (cat, idx) => (
                   <Button
+                    key={idx}
                     variant={cat == category ? "default" : "outline"}
                     className={cn(
                       cat === category ? "text-white" : "hover:text-white",
@@ -97,7 +100,7 @@ const Documents = () => {
 
             <div className="flex flex-wrap gap-6">
               {filteredDocs.map((doc, idx) => (
-                <div className="w-full md:w-[48%]">
+                <div key={idx} className="w-full md:w-[48%]">
                   <DocumentView key={idx} doc={doc} />
                 </div>
               ))}

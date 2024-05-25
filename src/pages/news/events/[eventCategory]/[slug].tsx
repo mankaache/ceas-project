@@ -64,11 +64,13 @@ const Event = () => {
 
           <div className="w-full markdown">
             <ReactMarkdown
-              children={event.content}
+              // children={event.content}
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeRaw]}
               // TODO: style md components (links, tables)
-            />
+            >
+              {event.content}
+            </ReactMarkdown>
           </div>
         </div>
       )}

@@ -13,7 +13,7 @@ const Photos = () => {
     "community" | "environment" | "all"
   >("all");
 
-  const PHOTOS: {
+  const PHOTOSObj: {
     src: string;
     alt?: string;
     category: "community" | "environment" | "all";
@@ -55,6 +55,8 @@ const Photos = () => {
     },
   ];
 
+  const PHOTOS = React.useMemo(() => PHOTOSObj, []);
+
   const filteredPhotos = React.useMemo(() => {
     return PHOTOS.filter((photo) => {
       if (category === "all") {
@@ -65,7 +67,7 @@ const Photos = () => {
       }
       return false;
     });
-  }, [category]);
+  }, [category, PHOTOS]);
 
   //   const images = React.useMemo(() => {
   //     return filteredPhotos.map(({ src }) => ({
@@ -98,6 +100,7 @@ const Photos = () => {
             <div className="categories flex flex-wrap gap-2 mt-2 mb-8">
               {["all", "community", "environment"].map((cat, idx) => (
                 <Button
+                  key={idx}
                   variant={cat == category ? "default" : "outline"}
                   className={cn(
                     cat === category ? "text-white" : "hover:text-white",
@@ -114,6 +117,7 @@ const Photos = () => {
             <div className="flex flex-wrap gap-4">
               {filteredPhotos.map((photo, idx) => (
                 <div
+                  key={idx}
                   className="image rounded-lg hover:scale-[0.98] duration-300 relative border w-full md:w-[49%] lg:w-[32%] aspect-square max-h-[250px] xl:max-h-[300px] cursor-pointer"
                   onClick={() => handleClick(idx, photo)}
                 >

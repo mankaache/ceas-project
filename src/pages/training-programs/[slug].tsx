@@ -74,11 +74,13 @@ This is a sample training program`,
 
           <div className="w-full markdown">
             <ReactMarkdown
-              children={program.content}
+              // children={program.content}
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeRaw]}
               // TODO: style md components (links, tables)
-            />
+            >
+              {program.content}
+            </ReactMarkdown>
           </div>
         </div>
       )}

@@ -90,8 +90,11 @@ A table:
     <BaseLayout>
       <div className="w-full p-4 max-w-screen-md py-4 mx-auto flex flex-col items-start justify-center gap-4">
         <div className="tags w-full flex items-start gap-2 justify-start">
-          {article.tags.map((tag) => (
-            <Button className="flex items-center justify-center gap-2 text-white capitalize">
+          {article.tags.map((tag, idx) => (
+            <Button
+              key={idx}
+              className="flex items-center justify-center gap-2 text-white capitalize"
+            >
               <FaTags />
               {tag}
             </Button>
@@ -124,11 +127,13 @@ A table:
 
         <div className="w-full markdown">
           <ReactMarkdown
-            children={article.content}
+            // children={article.content}
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeRaw]}
             // TODO: style md components (links, tables)
-          />
+          >
+            {article.content}
+          </ReactMarkdown>
         </div>
       </div>
     </BaseLayout>

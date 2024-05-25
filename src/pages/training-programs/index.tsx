@@ -85,8 +85,11 @@ const Programs = () => {
               "w-full flex items-start lg:items-stretch gap-6 flex-col lg:flex-row"
             }
           >
-            {PILLARS.map((item) => (
-              <div className={"border-dashed border-4 p-3 border-secondary"}>
+            {PILLARS.map((item, idx) => (
+              <div
+                key={idx}
+                className={"border-dashed border-4 p-3 border-secondary"}
+              >
                 <div
                   className={
                     "w-10 relative flex justify-center items-center mb-4"
