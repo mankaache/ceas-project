@@ -1,27 +1,25 @@
 const OurPartners = () => {
-    return (
-        <div className={'mt-20 md:mt-40 mb-20'}>
-            <h3 className={'mb-10 text-center text-primary font-semibold text-3xl'}>Meet out partners</h3>
-            <div className={'bg-secondary/10 py-6 mt-20'}>
-
-            <div className={'w-[95%] md:w-[80%] mx-auto flex-wrap  flex items-center gap-10 justify-center'}>
-                <div className={'w-[200px] flex justify-center items-center h-[200px] bg-accent/20 rounded-full'}>
-                    Partner 1
-                </div>
-                <div className={'w-[200px] flex justify-center items-center h-[200px]  bg-accent/20 rounded-full'}>
-                    Partner 2
-                </div>
-                <div className={'w-[200px] flex justify-center items-center h-[200px]  bg-accent/20 rounded-full'}>
-                    Partner 3
-                </div>
-                <div className={'w-[200px] flex justify-center items-center h-[200px]  bg-accent/20 rounded-full'}>
-                    Partner 4
-                </div>
-            </div>
-
+  return (
+    <div className="mt-20 md:mt-20">
+      <h3 className="mb-4 text-center text-primary font-semibold text-3xl">
+        Meet our partners
+      </h3>
+      <div className="bg-secondary/10 py-10 mt-5">
+        <div className="w-[90%] md:w-[80=5%] max-w-screen-2xl mx-auto flex-wrap  flex items-center gap-6 justify-center">
+          {["Partner 1", "Partner 2", "Partner 3", "Partner 4"].map(
+            (partner, idx) => (
+              <div
+                key={idx}
+                className="w-[150px] md:w-[200px] aspect-square flex justify-center items-center bg-accent/20 rounded-full"
+              >
+                {partner}
+              </div>
+            )
+          )}
         </div>
-        </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
-export default OurPartners
+export default OurPartners;
