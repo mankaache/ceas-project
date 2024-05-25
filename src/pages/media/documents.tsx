@@ -9,7 +9,7 @@ const Documents = () => {
   const [category, setCategory] = React.useState<
     "documentation" | "report" | "journal" | "all"
   >("all");
-  const DOCS: {
+  const DOCSObj: {
     title: string;
     description: string;
     href: string;
@@ -56,6 +56,8 @@ const Documents = () => {
       category: "documentation",
     },
   ];
+
+  const DOCS = React.useMemo(() => DOCSObj, []);
 
   const filteredDocs = React.useMemo(() => {
     return DOCS.filter((doc) => {

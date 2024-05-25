@@ -13,7 +13,7 @@ const Photos = () => {
     "community" | "environment" | "all"
   >("all");
 
-  const PHOTOS: {
+  const PHOTOSObj: {
     src: string;
     alt?: string;
     category: "community" | "environment" | "all";
@@ -54,6 +54,8 @@ const Photos = () => {
       category: "environment",
     },
   ];
+
+  const PHOTOS = React.useMemo(() => PHOTOSObj, []);
 
   const filteredPhotos = React.useMemo(() => {
     return PHOTOS.filter((photo) => {

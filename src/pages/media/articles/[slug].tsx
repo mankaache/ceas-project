@@ -127,11 +127,13 @@ A table:
 
         <div className="w-full markdown">
           <ReactMarkdown
-            children={article.content}
+            // children={article.content}
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeRaw]}
             // TODO: style md components (links, tables)
-          />
+          >
+            {article.content}
+          </ReactMarkdown>
         </div>
       </div>
     </BaseLayout>
