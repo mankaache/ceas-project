@@ -4,6 +4,8 @@ export interface CustomImage extends Image {
   original: string;
 }
 
+export default function CustomImage() {}
+
 export const images: CustomImage[] = [
   {
     src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
