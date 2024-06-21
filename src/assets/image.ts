@@ -15,6 +15,15 @@ import slide4 from "~/public/images/4.jpg";
 import noImage from "~/public/images/empty.jpg";
 import organigram from "~/public/images/organigran.png";
 
+import partner1 from "~/public/images/partners/partner-1.png";
+import partner2 from "~/public/images/partners/partner-2.png";
+import partner3 from "~/public/images/partners/partner-3.png";
+
+import carousel1 from "~/public/images/carousel-1.jpg";
+import carousel2 from "~/public/images/carousel-2.jpg";
+import carousel3 from "~/public/images/carousel-3.jpg";
+import carousel4 from "~/public/images/carousel-4.jpg";
+
 export {
   logo,
   user,
@@ -32,4 +41,11 @@ export {
   slide3,
   slide2,
   slide1,
+  partner1,
+  partner2,
+  partner3,
+  carousel1,
+  carousel2,
+  carousel3,
+  carousel4,
 };

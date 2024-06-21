@@ -8,8 +8,21 @@ import "aos/dist/aos.css";
 import "animate.css";
 import React from "react";
 import AOS from "aos";
+import { initGA, logPageView } from "@/lib/gtag";
+import { useRouter } from "next/router";
 
 function App({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+
+  React.useEffect(() => {
+    initGA();
+    logPageView(window.location.pathname);
+    router.events.on("routeChangeComplete", logPageView);
+    return () => {
+      router.events.off("routeChangeComplete", logPageView);
+    };
+  }, [router.events]);
+
   React.useEffect(() => {
     AOS.init({
       once: false,

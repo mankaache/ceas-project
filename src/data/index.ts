@@ -2,10 +2,34 @@ export const DocumentCategories: string[] = [];
 export const PhotosCategories: string[] = [];
 export const ArticlesCategories: string[] = [];
 
-export const catergoryMap: { [key: string]: string } = {
-  conferences: "Conferences",
-  "field-trips": "Field trips",
-  internships: "Internships",
-  defenses: "Defenses",
+// export const catergoryMap: { [key: string]: string } = {
+//   conferences: "Conferences",
+//   "field-trips": "Field trips",
+//   internships: "Internships",
+//   defenses: "Defenses",
+// };
+
+export const eventCategoryMap: { [key: string]: string } = {
+  internships: "Possibilités de stages",
+  defenses: "Défenses",
+  "field-trips": "Excursions",
+  conferences: "Conférences",
 };
+
+export const menuMap: { [key: string]: string } = {
+  media: "Médiatheque",
+  photos: "Photos",
+  videos: "Videos",
+  articles: "Articles",
+  documents: "Documents",
+  news: "Nouvelles",
+  events: "Événements",
+  admission: "Admission",
+  "training-programs": "Programmes de formation",
+  "e-learning": "E-learning",
+  contact: "Contact",
+  about: "À propos",
+  home: "Accueil",
+};
+
 export * from "./events";

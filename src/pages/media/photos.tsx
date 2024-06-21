@@ -1,79 +1,52 @@
 import { BaseLayout } from "@/components";
+import { InnerPageError } from "@/components/errors";
+import { InnerPageLoader } from "@/components/loaders";
 import { Button } from "@/components/ui/button";
+import { firestore } from "@/firebase/config";
+import { useSubcategories } from "@/firebase/helpers";
 import { cn } from "@/lib/utils";
+import { collection, doc, query } from "firebase/firestore";
 import Image from "next/image";
 import React from "react";
+import { useCollectionData } from "react-firebase-hooks/firestore";
 import { FaDownload } from "react-icons/fa6";
 import { IoDocumentTextOutline } from "react-icons/io5";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 
 const Photos = () => {
-  const [category, setCategory] = React.useState<
-    "community" | "environment" | "all"
-  >("all");
+  const [category, setCategory] = React.useState("tout");
 
-  const PHOTOSObj: {
-    src: string;
-    alt?: string;
-    category: "community" | "environment" | "all";
-  }[] = [
-    {
-      src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
-      alt: "image",
-      category: "community",
-    },
-    {
-      src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-      alt: "image",
-      category: "community",
-    },
-    {
-      src: "https://c2.staticflickr.com/8/7577/28973580825_d8f541ba3f_b.jpg",
-      alt: "image",
-      category: "community",
-    },
-    {
-      src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
-      alt: "image",
-      category: "environment",
-    },
-    {
-      src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
-      alt: "image",
-      category: "community",
-    },
-    {
-      src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
-      alt: "image",
-      category: "community",
-    },
-    {
-      src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
-      alt: "image",
-      category: "environment",
-    },
-  ];
+  const [categories, catLoading, catError] = useSubcategories("photos");
+  const [photos, loading, error] = useCollectionData(
+    collection(firestore, "photos")
+  );
 
-  const PHOTOS = React.useMemo(() => PHOTOSObj, []);
+  const categoryLabels = React.useMemo(() => {
+    const categoriesSet: Set<string> = new Set();
+
+    categoriesSet.add("tout");
+
+    categories?.forEach((category) => {
+      categoriesSet.add(category.label);
+    });
+
+    return Array.from(categoriesSet);
+  }, [categories]);
 
   const filteredPhotos = React.useMemo(() => {
-    return PHOTOS.filter((photo) => {
-      if (category === "all") {
-        return true;
-      }
-      if (category === photo.category) {
-        return true;
-      }
-      return false;
-    });
-  }, [category, PHOTOS]);
-
-  //   const images = React.useMemo(() => {
-  //     return filteredPhotos.map(({ src }) => ({
-  //       src,
-  //     }));
-  //   }, [category]);
+    return (
+      photos?.filter((photo) => {
+        if (category === "tout") {
+          return true;
+        }
+        if (category === photo.category) {
+          return true;
+        }
+        return false;
+      }) || []
+    );
+  }, [category, photos]);
 
   const [index, setIndex] = React.useState(-1);
 
@@ -88,6 +61,10 @@ const Photos = () => {
   const handleMovePrev = () => setIndex(prevIndex);
   const handleMoveNext = () => setIndex(nextIndex);
 
+  if (loading) return <InnerPageLoader loading={loading} />;
+
+  if (error) return <InnerPageError error={error} />;
+
   return (
     <BaseLayout>
       <div className="w-full">
@@ -96,9 +73,9 @@ const Photos = () => {
             <h1 className="title text-3xl text-center mb-2 font-poppins">
               Photos
             </h1>
-            <p className="p-2">Categories</p>
+            <p className="p-2">Catégories</p>
             <div className="categories flex flex-wrap gap-2 mt-2 mb-8">
-              {["all", "community", "environment"].map((cat, idx) => (
+              {categoryLabels?.map((cat, idx) => (
                 <Button
                   key={idx}
                   variant={cat == category ? "default" : "outline"}
@@ -115,23 +92,29 @@ const Photos = () => {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              {filteredPhotos.map((photo, idx) => (
-                <div
-                  key={idx}
-                  className="image rounded-lg hover:scale-[0.98] duration-300 relative border w-full md:w-[49%] lg:w-[32%] aspect-square max-h-[250px] xl:max-h-[300px] cursor-pointer"
-                  onClick={() => handleClick(idx, photo)}
-                >
-                  <Image
-                    src={photo.src}
-                    fill
-                    alt={photo?.alt ?? ""}
-                    objectFit=""
-                    style={{
-                      borderRadius: 6,
-                    }}
-                  />
+              {!Boolean(filteredPhotos.length) ? (
+                <div className="flex items-center justify-center text-lg text-center w-full py-4">
+                  Aucune photo pour la catégorie sélectionnée
                 </div>
-              ))}
+              ) : (
+                filteredPhotos.map((photo, idx) => (
+                  <div
+                    key={idx}
+                    className="image rounded-lg hover:scale-[0.98] duration-300 relative border w-full md:w-[49%] lg:w-[32%] aspect-square max-h-[250px] xl:max-h-[300px] cursor-pointer"
+                    onClick={() => handleClick(idx, photo.src)}
+                  >
+                    <Image
+                      src={photo.src}
+                      fill
+                      alt={photo?.alt ?? ""}
+                      objectFit=""
+                      style={{
+                        borderRadius: 6,
+                      }}
+                    />
+                  </div>
+                ))
+              )}
             </div>
 
             {!!currentImage && (

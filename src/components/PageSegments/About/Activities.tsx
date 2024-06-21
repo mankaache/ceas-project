@@ -19,24 +19,26 @@ const Activities = () => {
           </div>
           <div className={"w-full flex-1"}>
             <h3 className={"font-semibold text-3xl text-center md:text-left"}>
-              We have activities we carry out to promote{" "}
-              <span className={"text-secondary"}>sustainaibility</span>{" "}
+              Nous menons des activités pour promouvoir{" "}
+              <span className={"text-secondary"}>la durabilité</span>{" "}
             </h3>
             <p className={"mb-5 mt-4 text-justify"}>
-              We all have a role to play in ensuring a sustainable future. This
-              means finding ways to meet our needs without harming the ability
-              of future generations to meet theirs. To achieve this, we can
-              engage in a variety of activities that promote sustainability.
-              These might involve everyday practices like reducing waste and
-              conserving resources, or larger-scale actions like supporting
-              renewable energy initiatives or advocating for environmental
-              policies.
+              Nous avons tous un rôle à jouer pour garantir un avenir durable.
+              Cela signifie trouver des moyens de répondre à nos besoins sans
+              nuire à la capacité des générations futures à répondre aux leurs.
+              Pour y parvenir, nous pouvons nous engager dans une variété
+              d’activités qui favorisent la durabilité. Celles-ci peuvent
+              impliquer des pratiques quotidiennes comme la réduction des
+              déchets et la conservation des ressources, ou des actions à plus
+              grande échelle comme soutenir des initiatives en matière
+              d’énergies renouvelables ou plaider en faveur de politiques
+              environnementales.
             </p>
             <div className={"flex flex-col lg:flex-row items-center gap-3"}>
               <Button
                 className="w-full text-center text-base lg:text-sm xl:text-base"
                 href={"/news/events"}
-                text={"See our events"}
+                text={"Voir nos événements"}
               />
               <Link
                 href={"/training-programs"}
@@ -44,7 +46,7 @@ const Activities = () => {
                   "w-full text-center text-base lg:text-sm xl:text-base border px-4 py-3 hover:font-bold hover:border-2 border-secondary text-secondary rounded-lg bg-transparent"
                 }
               >
-                See our Training programs
+                Voir nos programmes de formation
               </Link>
             </div>
           </div>

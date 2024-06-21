@@ -40,10 +40,10 @@ export default function HomeCarousel() {
         }}
       >
         {[
-          { image: commonImages.slide1 },
-          { image: commonImages.slide2 },
-          { image: commonImages.slide3 },
-          { image: commonImages.slide4 },
+          { image: commonImages.carousel1 },
+          { image: commonImages.carousel2 },
+          { image: commonImages.carousel3 },
+          { image: commonImages.carousel4 },
         ].map((item, idx) => (
           <SwiperSlide
             key={idx}

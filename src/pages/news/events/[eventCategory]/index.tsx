@@ -3,38 +3,51 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { commonImages } from "@/assets";
 import { IEvent } from "@/models";
-import { EVENTS, catergoryMap } from "@/data";
+import { EVENTS, eventCategoryMap } from "@/data";
 import { BaseLayout } from "@/components";
 import { TfiLocationPin } from "react-icons/tfi";
 import { FaCalendar } from "react-icons/fa6";
 import React from "react";
+import { useCollectionData } from "react-firebase-hooks/firestore";
+import { collection, query, where } from "firebase/firestore";
+import { firestore } from "@/firebase/config";
+import { InnerPageLoader } from "@/components/loaders";
+import { InnerPageError } from "@/components/errors";
+import dayjs from "dayjs";
 
 const EventCategory = () => {
   const router = useRouter();
   const { eventCategory } = router.query;
 
-  const filteredEvents = React.useMemo(() => {
-    return EVENTS.filter((event) => event.category === eventCategory);
-  }, [eventCategory]);
+  const [filteredEvents, loading, error] = useCollectionData(
+    query(
+      collection(firestore, "events")
+      // where("category", "==", eventCategory)
+    )
+  );
+
+  if (loading) return <InnerPageLoader loading={loading} />;
+
+  if (error) return <InnerPageError error={error} />;
 
   return (
     <BaseLayout>
-      {!Boolean(filteredEvents.length) ? (
+      {!Boolean(filteredEvents?.length) ? (
         <div className="flex items-center justify-center p-8">
           <h1 className="text-4xl font-bold">
-            No {catergoryMap[eventCategory as string]}
+            Pas de {eventCategoryMap[eventCategory as string]}
           </h1>
         </div>
       ) : (
         <div className={"pb-24 pt-2 md:pt-6  px-2 w-[96%] md:w-[85%] mx-auto"}>
           <h1 className={"font-bold text-3xl text-center py-4 capitalize"}>
-            {catergoryMap[eventCategory as string]}
+            {eventCategoryMap[eventCategory as string]}
           </h1>
 
           <div className={"flex gap-5 flex-wrap items-center"}>
-            {filteredEvents.map((item) => (
+            {filteredEvents?.map((item, idx) => (
               <div
-                key={item.id}
+                key={idx}
                 className={
                   "card mt-6 w-full md:w-[48%] lg:w-[31%] bg-white shadow-lg rounded-lg"
                 }
@@ -48,7 +61,8 @@ const EventCategory = () => {
                     src={item.image.src}
                     fill
                     priority
-                    alt={item.image.alt}
+                    alt={item.image.caption}
+                    objectFit="cover"
                   />
                 </p>
                 <div className={"w-full py-3 px-2"}>
@@ -65,7 +79,7 @@ const EventCategory = () => {
                     <div className="date flex items-center justify-center gap-2">
                       <FaCalendar size={18} className="" />
                       <p className="font-semibold text-slate-500">
-                        {item.date}
+                        {dayjs(item.date).format("YYYY-MM-DD")}
                       </p>
                     </div>
                   </div>
@@ -76,7 +90,7 @@ const EventCategory = () => {
                     }
                     href={`${eventCategory}/${item.slug}`}
                   >
-                    View details
+                    Voir les détails
                   </Link>
                 </div>
               </div>

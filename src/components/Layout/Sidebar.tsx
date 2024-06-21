@@ -46,7 +46,8 @@ export default function Sidebar() {
       <SheetContent side={"left"} className="px-1 py-2 overflow-y-scroll">
         <SheetHeader>
           <div className="w-full flex flex-col pb-4 items-center justify-center">
-            <LanguageSwitcher />
+            {/* <LanguageSwitcher /> */}
+            <div className="my-4"></div>
             <div className="md:hidden">
               <SearchBar />
             </div>

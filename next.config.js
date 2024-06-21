@@ -11,6 +11,12 @@ module.exports = {
         // port: '',
         // pathname: '/my-bucket/**',
       },
+      {
+        protocol: "https",
+        hostname: "firebasestorage.googleapis.com",
+        // port: '',
+        // pathname: '/my-bucket/**',
+      },
     ],
   },
 };

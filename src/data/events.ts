@@ -1,6 +1,6 @@
 import { IEvent } from "@/models";
 
-export const EVENTS: IEvent[] = [
+export const EVENTS = [
   {
     id: "1",
     location: "Bamenda",
@@ -11,7 +11,7 @@ export const EVENTS: IEvent[] = [
     image: {
       //   src: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
       src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-      alt: "Internship opportunities",
+      caption: "Internship opportunities",
     },
     date: "2020-12-12",
     category: "conferences",
@@ -74,7 +74,7 @@ For more information, you can visit the official [International Women's Day webs
     image: {
       //   src: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
       src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-      alt: "Internship opportunities",
+      caption: "Internship opportunities",
     },
     date: "2020-12-12",
     category: "internships",
@@ -91,7 +91,7 @@ For more information, you can visit the official [International Women's Day webs
     image: {
       //   src: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
       src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-      alt: "Internship opportunities",
+      caption: "Internship opportunities",
     },
     date: "2020-12-12",
     category: "conferences",
