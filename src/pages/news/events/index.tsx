@@ -7,8 +7,9 @@ const Event = () => {
   const Events = [
     {
       id: "1",
-      name: "Conferences",
+      name: "Conférences",
       category: "conferences",
+      image: commonImages.Aboutus1,
       desc:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
         " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type" +
@@ -16,8 +17,9 @@ const Event = () => {
     },
     {
       id: "2",
-      name: "Field trips",
+      name: "Excursions",
       category: "field-trips",
+      image: commonImages.Aboutus2,
       desc:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
         " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type" +
@@ -25,8 +27,9 @@ const Event = () => {
     },
     {
       id: "3",
-      name: "Defenses",
+      name: "Défenses",
       category: "defenses",
+      image: commonImages.Aboutus2,
       desc:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
         " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type" +
@@ -34,8 +37,9 @@ const Event = () => {
     },
     {
       id: "4",
-      name: "Internship opportunities",
+      name: "Possibilités de stages",
       category: "internships",
+      image: commonImages.Aboutus4,
       desc:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
         " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type" +
@@ -46,7 +50,7 @@ const Event = () => {
     <BaseLayout>
       <div>
         <h1 className={"font-bold text-3xl text-center pt-8 capitalize"}>
-          Events
+          Événements
         </h1>
         <div
           className={
@@ -64,7 +68,7 @@ const Event = () => {
               >
                 <div className="bg-black/20 w-full h-[250px] md:h-[300px] relative overflow-hidden rounded-lg mb-2">
                   <Image
-                    src={commonImages.noImage}
+                    src={item.image ?? commonImages.noImage}
                     fill
                     alt="image"
                     className={"w-full h-full object-cover"}
@@ -85,9 +89,9 @@ const Event = () => {
                     <Button
                       color="secondary"
                       variant="outline"
-                      className="border-secondary text-base mx-auto"
+                      className="border-secondary text-base mx-auto hover:text-white"
                     >
-                      See all {item.name}
+                      Voir tout(es) les {item.name}
                     </Button>
                   </Link>
                 </div>

@@ -8,9 +8,14 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import { useRouter } from "next/router";
 import { IEvent } from "@/models";
-import { EVENTS, catergoryMap } from "@/data";
 import { TfiLocationPin } from "react-icons/tfi";
 import { FaCalendar } from "react-icons/fa";
+import { useCollectionData } from "react-firebase-hooks/firestore";
+import { collection, query, where } from "firebase/firestore";
+import { firestore } from "@/firebase/config";
+import { InnerPageLoader } from "@/components/loaders";
+import { InnerPageError } from "@/components/errors";
+import dayjs from "dayjs";
 
 const ReactMarkdown = dynamic(
   () => import("react-markdown").then((mod) => mod.default),
@@ -19,14 +24,30 @@ const ReactMarkdown = dynamic(
 
 const Event = () => {
   const router = useRouter();
-  const { slug } = router.query;
-  const event = EVENTS[0];
+  const { slug, eventCategory } = router.query;
+
+  const [events, loading, error] = useCollectionData(
+    query(
+      collection(firestore, "events"),
+      // where("category", "==", eventCategory),
+      where("slug", "==", slug)
+    )
+  );
+
+  const event = React.useMemo(
+    () => (events ? events[0] : undefined),
+    [events]
+  ) as IEvent;
+
+  if (loading) return <InnerPageLoader loading={loading} />;
+
+  if (error) return <InnerPageError error={error} />;
 
   return (
     <BaseLayout>
       {!event ? (
         <div className="flex items-center justify-center p-8">
-          <h1 className="text-4xl font-bold">Not found</h1>
+          <h1 className="text-4xl font-bold">Aucun événement trouvé </h1>
         </div>
       ) : (
         <div className="w-full p-4 max-w-screen-md py-4 mx-auto flex flex-col items-start justify-center gap-4">
@@ -48,17 +69,19 @@ const Event = () => {
             </div>
             <div className="date flex items-center justify-center gap-2">
               <FaCalendar size={18} className="" />
-              <p className="font-semibold text-slate-500">{event.date}</p>
+              <p className="font-semibold text-slate-500">
+                {dayjs(event.date).format("YYYY-MM-DD")}
+              </p>
             </div>
           </div>
 
           <div className="image w-full h-[250px] md:h-[400px] relative">
             <Image
               src={event.image.src}
-              alt={event.image.alt}
+              alt={event.image.caption}
               fill
               style={{ borderRadius: 8 }}
-              // objectFit="contain"
+              objectFit="cover"
             />
           </div>
 
