@@ -9,7 +9,7 @@ import rehypeRaw from "rehype-raw";
 import { useRouter } from "next/router";
 import { IArticle } from "@/models";
 import { useCollectionData } from "react-firebase-hooks/firestore";
-import { collection, doc, query, where } from "firebase/firestore";
+import { collection, doc, getDocs, query, where } from "firebase/firestore";
 import { firestore } from "@/firebase/config";
 import { InnerPageLoader } from "@/components/loaders";
 import { InnerPageError } from "@/components/errors";
@@ -141,3 +141,22 @@ const Article = () => {
 };
 
 export default Article;
+
+export async function getStaticPaths() {
+  const articles = await getDocs(collection(firestore, "articles"));
+
+  const paths = articles.docs.map((article) => ({
+    params: { slug: article.data().slug },
+  }));
+
+  return {
+    paths,
+    fallback: "blocking",
+  };
+}
+
+export async function getStaticProps() {
+  return {
+    props: {},
+  };
+}
