@@ -6,7 +6,7 @@ interface CardProps {
   desc: string;
   href: string;
   id?: string;
-  image: string | StaticImageData;
+  image?: string | StaticImageData;
 }
 
 const FormationCards = ({
