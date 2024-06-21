@@ -1,14 +1,20 @@
 import { commonImages } from "@/assets";
 import Link from "next/link";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 interface CardProps {
   title: string;
   desc: string;
   href: string;
   id?: string;
+  image: string | StaticImageData;
 }
 
-const FormationCards = ({ title, desc, href }: CardProps) => {
+const FormationCards = ({
+  title,
+  desc,
+  href,
+  image = commonImages.noImage,
+}: CardProps) => {
   return (
     <Link
       href={href}
@@ -25,7 +31,7 @@ const FormationCards = ({ title, desc, href }: CardProps) => {
           fill
           priority
           alt="image"
-          src={commonImages.noImage}
+          src={image}
           className={"w-full h-full object-cover"}
         />
       </div>
@@ -37,14 +43,16 @@ const FormationCards = ({ title, desc, href }: CardProps) => {
         >
           {title}
         </h3>
-        <p className={"text-base pb-3 text-light text-center"}>{desc}</p>
+        {desc && (
+          <p className={"text-base pb-3 text-light text-center"}>{desc}</p>
+        )}
         <Link
           className={
             "pt-2 font-semibold inline-block text-center text-lg text-secondary w-full"
           }
           href={href}
         >
-          View details
+          Voir les détails
         </Link>
       </div>
     </Link>
