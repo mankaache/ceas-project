@@ -11,7 +11,7 @@ import { IEvent } from "@/models";
 import { TfiLocationPin } from "react-icons/tfi";
 import { FaCalendar } from "react-icons/fa";
 import { useCollectionData } from "react-firebase-hooks/firestore";
-import { collection, query, where } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { firestore } from "@/firebase/config";
 import { InnerPageLoader } from "@/components/loaders";
 import { InnerPageError } from "@/components/errors";
@@ -102,3 +102,22 @@ const Event = () => {
 };
 
 export default Event;
+
+export async function getStaticPaths() {
+  const events = await getDocs(collection(firestore, "events"));
+
+  const paths = events.docs.map((event) => ({
+    params: { slug: event.data().slug },
+  }));
+
+  return {
+    paths,
+    fallback: "blocking",
+  };
+}
+
+export async function getStaticProps() {
+  return {
+    props: {},
+  };
+}
