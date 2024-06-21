@@ -37,8 +37,6 @@ const BaseLayout = ({
     ? `${process.env.NEXT_PUBLIC_SITE_URL}${pageLink}/`
     : `${process.env.NEXT_PUBLIC_SITE_URL}/`;
 
-  const regex = /^\/available-puppies\/(?!$).+/;
-
   const themeColor = "#475A23";
 
   React.useEffect(() => {
@@ -100,7 +98,7 @@ const BaseLayout = ({
           {
             name: "application-name",
             // content: title
-            content: process.env.NEXT_PUBLIC_SITE_NAME ?? "Tiny Mountain Paws",
+            content: process.env.NEXT_PUBLIC_SITE_NAME ?? "CEAS-GRNE",
           },
           {
             name: "apple-mobile-web-app-capable",
@@ -113,7 +111,7 @@ const BaseLayout = ({
           {
             name: "apple-mobile-web-app-title",
             // content: title
-            content: process.env.NEXT_PUBLIC_SITE_NAME ?? "",
+            content: process.env.NEXT_PUBLIC_SITE_NAME ?? "CEAS-GRNE",
           },
           {
             name: "format-detection",

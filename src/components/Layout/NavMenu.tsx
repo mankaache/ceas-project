@@ -15,28 +15,38 @@ import {
 } from "@/components/ui/navigation-menu";
 import { useRouter } from "next/router";
 import { useScreenSize } from "@/hooks";
+import { menuMap } from "@/data";
 
 const media: { title: string; href: string; description?: string }[] = [
   {
-    title: "Photos",
+    title: menuMap["photos"],
     href: "/media/photos",
   },
 
   {
-    title: "Articles",
+    title: menuMap["videos"],
+    href: "/media/videos",
+  },
+
+  {
+    title: menuMap["articles"],
     href: "/media/articles",
   },
 
   {
-    title: "Documents",
+    title: menuMap["documents"],
     href: "/media/documents",
   },
 ];
 
 const news: { title: string; href: string; description?: string }[] = [
   {
-    title: "Our Events",
+    title: menuMap["events"],
     href: "/news/events",
+  },
+  {
+    title: menuMap["admission"],
+    href: "/news/admission",
   },
 ];
 
@@ -47,29 +57,33 @@ export const NAV_MENU: {
   children?: { title: string; href: string; description?: string }[];
 }[] = [
   {
-    title: "Home",
+    title: menuMap["home"],
     href: "/",
   },
   {
-    title: "About",
+    title: menuMap["about"],
     href: "/about",
   },
   {
-    title: "Training Programs",
+    title: menuMap["training-programs"],
     href: "/training-programs",
   },
   {
-    title: "Media",
+    title: menuMap["media"],
     href: "/media",
     children: media,
   },
   {
-    title: "News",
+    title: menuMap["news"],
     href: "/news",
     children: news,
   },
   {
-    title: "Contact",
+    title: menuMap["e-learning"],
+    href: process.env.NEXT_PUBLIC_E_LEARNING_URL as string,
+  },
+  {
+    title: menuMap["contact"],
     href: "/contact",
   },
 ];
@@ -154,16 +168,24 @@ const ListItem = React.forwardRef<
 ListItem.displayName = "ListItem";
 
 export function NavMenu() {
-  const { isMd } = useScreenSize();
+  const { isMd, isXl } = useScreenSize();
 
   const NAV_ITEMS = React.useMemo(() => {
     return NAV_MENU.filter((item) => {
       if (isMd) {
         return !["/training-programs", "/media", "/news"].includes(item.href);
       }
+
+      if (isXl) {
+        return ![
+          "/training-programs",
+          process.env.NEXT_PUBLIC_E_LEARNING_URL,
+        ].includes(item.href);
+      }
+
       return true;
     });
-  }, [isMd]);
+  }, [isMd, isXl]);
   return (
     <NavigationMenu>
       <NavigationMenuList className="space-x-1">

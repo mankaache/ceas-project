@@ -21,7 +21,7 @@ const SectionFive = () => {
               fill
               priority
               src={commonImages.Aboutus5}
-              alt={"about us"}
+              alt={"a propos de nous"}
               className={"size-full object-cover"}
             />
           </div>
@@ -37,19 +37,20 @@ const SectionFive = () => {
               "font-semibold text-3xl leading-8 md:text-4xl xl:text-5xl mb-4  pl-2 text-center md:text-left"
             }
           >
-            We <span className={"text-secondary"}> Prioritize </span>field work{" "}
-            <br className={"block md:hidden"} /> and best practices
+            Nous <span className={"text-secondary"}> Priorisons </span>le
+            travail sur le terrain <br className={"block md:hidden"} /> et les
+            meilleures pratiques
           </h3>
           <p className={"text-lg md:text-xl mt-10 text-center md:text-left"}>
-            Making people do things the right way is essential to the
-            environment and ecosystem as a whole
+            Amener les gens à faire les choses correctement est essentiel pour
+            l’environnement et l’écosystème dans son ensemble.
           </p>
           <div
             className={
               "mt-12 flex items-center justify-center md:justify-start"
             }
           >
-            <Button href={"/about"} text={"See what we do"} />
+            <Button href={"/about"} text={"Voyez ce que nous faisons"} />
           </div>
         </div>
       </div>

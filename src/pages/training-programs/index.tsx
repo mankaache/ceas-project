@@ -5,67 +5,45 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Image from "next/image";
 import React from "react";
 const Programs = () => {
-  const Formations = [
-    {
-      id: "1",
-      title: "Title",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    },
-    {
-      id: "2",
-      title: "Title",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    },
-    {
-      id: "3",
-      title: "Title",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    },
-    {
-      id: "4",
-      title: "Title",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    },
-    {
-      id: "5",
-      title: "Title",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    },
-    {
-      id: "1",
-      title: "Title",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    },
-    {
-      id: "6",
-      title: "Title",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    },
-  ];
+  const PROGRAMS = ["mine", "forêt", "pêche", "faune", "environnement"];
+
+  const FORMATIONS = React.useMemo(
+    () =>
+      // PROGRAMS.map((program, idx) => ({
+      //   id: idx,
+      //   title: program,
+      //   description:
+      //     "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      // })),
+
+      [
+        {
+          title:
+            "Practiciens de l’observation independante des ressources forestieres",
+          slug: "practiciens-de-lobservation-independante-des-ressources-forestieres",
+          description: "",
+          image: commonImages.Aboutus4,
+        },
+      ],
+    []
+  );
 
   const PILLARS = React.useMemo(() => {
     return [
       {
-        title: "Knowledge and evaluation of forest resources",
+        title: "Connaissance et évaluation des ressources",
         description:
           "Lorem Why do we use it? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as",
       },
 
       {
-        title: "Governance",
+        title: "Gouvernance",
         description:
           "Lorem Why do we use it? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as",
       },
 
       {
-        title: "Practical and Ethical",
+        title: "Pratique et éthique",
         description:
           "Lorem Why do we use it? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as",
       },
@@ -76,8 +54,18 @@ const Programs = () => {
     <BaseLayout>
       <div className={"w-[95%] md:w-[90%] max-w-screen-2xl mx-auto pb-20 pt-2"}>
         <div>
+          <h2 className="text-xl sm:text-2xl lg:text-xl xl:text-2xl text-secondary font-bold mt-8 mb-1 uppercase flex flex-wrap items-center justify-between gap-0">
+            {PROGRAMS.map((program, idx) => (
+              <span
+                key={idx}
+                className="border-4 w-1/4 lg:w-1/5 last:w-full lg:last:w-1/5  border-r-0 last:border-t-0 lg:last:border-t-4 last:border-r-4 [&:nth-last-child(2)]:border-r-4 lg:[&:nth-last-child(2)]:border-r-0  border-dashed border-secondary py-2 text-center"
+              >
+                {program}
+              </span>
+            ))}
+          </h2>
           <h3 className={"text-2xl uppercase text-center font-bold py-8"}>
-            The three pillars which constitute our entire training
+            Les trois piliers qui constituent l’ensemble de notre formation
           </h3>
 
           <div
@@ -115,16 +103,17 @@ const Programs = () => {
             "text-3xl text-center capitalize font-bold pt-16 md:pt-20 pb-8 text-primary"
           }
         >
-          See all training Programs we do and offer
+          Voir tous les programmes de formation
         </h3>
 
         <div className={"flex flex-wrap gap-6 justify-center items-center"}>
-          {Formations.map((item) => (
+          {FORMATIONS.map((item, idx) => (
             <FormationCards
               title={item.title}
-              href={`/training-programs/${item.id}`}
-              key={item.id}
+              href={`/training-programs/${item.slug}`}
+              key={idx}
               desc={item.description}
+              image={item.image}
             />
           ))}
         </div>

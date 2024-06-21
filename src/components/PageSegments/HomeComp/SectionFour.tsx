@@ -1,18 +1,21 @@
+import { commonImages } from "@/assets";
 import { EventCard } from "../Cards";
 
 const SectionFour = () => {
   return (
     <div className={"w-[95%] mx-auto md:w-[90%] max-w-screen-2xl px-2 md:px-0"}>
-      <h3 className={"text-center text-primary font-semibold text-3xl"}>
-        Our Events
+      <h3
+        className={"text-center capitalize text-primary font-semibold text-3xl"}
+      >
+        Nos événements
       </h3>
       <p
         className={
           "py-3 text-center mx-auto w-full md:w-[60%] text-base md:text-lg lg:text-xl mb-6"
         }
       >
-        We organise events and hold field trips and also offer alot of
-        internship opportunities
+        Nous organisons des événements et organisons des sorties sur le terrain
+        et proposons également de nombreuses opportunités de stages
       </p>
 
       <div
@@ -22,27 +25,31 @@ const SectionFour = () => {
       >
         {[
           {
-            title: "Conferences",
-            linkText: "See Conference",
+            title: "Conférences",
+            linkText: "Voir les conférences",
             href: "/events/conference",
+            image: commonImages.Aboutus1,
           },
 
           {
-            title: "Field Trips",
-            linkText: "See our Field trips",
+            title: "Excursions",
+            linkText: "Voir nos sorties scolaires",
             href: "/events/field-trips",
+            image: commonImages.Aboutus2,
           },
 
           {
-            title: "Defenses",
-            linkText: "See our Defenses",
+            title: "Défenses",
+            linkText: "Voir nos défenses",
             href: "/events/defenses",
+            image: commonImages.Aboutus1,
           },
 
           {
-            title: "Internship opportunities",
-            linkText: "See Internship offers",
-            href: "/events/internship",
+            title: "Possibilités de stages",
+            linkText: "Voir les offres de stages",
+            href: "/events/internship-opportunities",
+            image: commonImages.Aboutus4,
           },
         ].map((event, idx) => (
           <EventCard
@@ -50,6 +57,7 @@ const SectionFour = () => {
             title={event.title}
             linkText={event.linkText}
             href={event.href}
+            image={event.image}
           />
         ))}
       </div>

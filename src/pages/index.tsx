@@ -33,18 +33,18 @@ const Home = () => {
               "flex items-center justify-center flex-1 text-2xl md:text-2xl text-center text-base-color font  font-semibold"
             }
           >
-            Sign up to our news letter and get latest updates about our
-            activites, events and many more
+            Inscrivez-vous à notre newsletter et recevez les dernières mises à
+            jour sur vos activités, événements et bien d’autres.
           </div>
           <div className="flex flex-1 items-center justify-center">
             <div className="w-full max-w-md p-0">
               <div className="w-full rounded-full bg-white/100 p-2 border border-gray-800 flex items-center justify-center">
                 <input
                   className="pl-2 w-full bg-transparent text-black placeholder:text-black/50  outline-none"
-                  placeholder="Your Email address"
+                  placeholder="Votre adresse e-mail"
                 />
                 <button className="rounded-full text-white bg-primary p-2 w-[10rem]">
-                  Sign Up
+                  S’inscrire
                 </button>
               </div>
             </div>

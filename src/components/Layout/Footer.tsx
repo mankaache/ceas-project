@@ -5,6 +5,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
+import dayjs from "dayjs";
 
 const Footer = () => {
   const router = useRouter();
@@ -30,19 +31,24 @@ const Footer = () => {
             }
           >
             <div className={"space-y-1 *:block *:py-3 *:text-xl *:text-white"}>
-              <Link href={"/about"}>About us</Link>
-              <Link href={"/training-programs"}>Training programs</Link>
+              <Link href={"/about"}>À propos de nous</Link>
+              <Link href={"/training-programs"}>Programmes de formation</Link>
               <Link href={"/"}>Admission</Link>
-              <Link href={"/news"}>News</Link>
+              <Link href={"/"}>Nouvelles</Link>
             </div>
 
             <div className={"space-y-1 *:block *:py-3 *:text-xl *:text-white"}>
-              <Link href={"/"}>Privacy policy</Link>
-              <Link href={"/"}>Terms of conditions</Link>
+              <Link href={"/"}>Politique de confidentialité</Link>
+              <Link href={"/"}>Termes et conditions</Link>
+              <Link
+                href={process.env.NEXT_PUBLIC_ADMIN_DASHBOARD_URL as string}
+              >
+                Administrateur
+              </Link>
             </div>
             <div className={"space-y-1 *:block *:py-3 *:text-xl *:text-white"}>
-              <Link href={"/"}>FAQs</Link>
-              <Link href={"/contact"}>Contact Us</Link>
+              <Link href={"/"}>FAQ</Link>
+              <Link href={"/contact"}>Contactez-nous</Link>
             </div>
           </div>
           <div
@@ -51,7 +57,8 @@ const Footer = () => {
             }
           >
             <p className={"text-white text-lg w-full"}>
-              © 2024. All rights reserved by {process.env.NEXT_PUBLIC_SITE_NAME}
+              © {dayjs().format("YYYY")}. Tous droits réservés par{" "}
+              {process.env.NEXT_PUBLIC_SITE_NAME}
             </p>
             <div
               className={
