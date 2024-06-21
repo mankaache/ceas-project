@@ -44,13 +44,13 @@ const Navbar = () => {
             </div>
 
             <div className="flex items-center justify-center gap-4">
-              <div className="hidden md:flex items-center gap-6">
+              {/* <div className="hidden md:flex items-center gap-6">
                 <div className={"flex justify-center items-center gap-6 pt-3"}>
                   <LanguageSwitcher />
                 </div>
-              </div>
+              </div> */}
 
-              <div className={"lg:hidden"}>
+              <div className={"xl:hidden"}>
                 <Sidebar />
               </div>
             </div>
