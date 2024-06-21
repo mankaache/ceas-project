@@ -9,7 +9,7 @@ const WhoWeAre = () => {
         <h3
           className={"text-center lg:pb-4 text-3xl text-primary font-semibold"}
         >
-          Who we are
+          Qui nous sommes
         </h3>
 
         <div
