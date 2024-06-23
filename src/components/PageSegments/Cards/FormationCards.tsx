@@ -38,7 +38,7 @@ const FormationCards = ({
       <div className={"w-full"}>
         <h3
           className={
-            "font-semibold text-2xl text-primary pt-2 pb-3 text-center"
+            "font-semibold text-lg px-4 text-primary pt-2 pb-3 text-center"
           }
         >
           {title}

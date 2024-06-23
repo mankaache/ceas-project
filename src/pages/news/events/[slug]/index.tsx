@@ -2,7 +2,7 @@ import { BaseLayout } from "@/components";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import React from "react";
-import { FaCircleUser, FaTags } from "react-icons/fa6";
+import {  FaTags } from "react-icons/fa6";
 import dynamic from "next/dynamic";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";

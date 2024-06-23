@@ -56,13 +56,13 @@ const Navbar = () => {
             </div>
           </nav>
         </header>
-        <div
+        {/* <div
           className={
             "hidden md:flex justify-center items-center gap-6 pt-3 border-t pb-2 border-gray-700"
           }
         >
           <SearchBar />
-        </div>
+        </div> */}
       </div>
     </div>
   );
