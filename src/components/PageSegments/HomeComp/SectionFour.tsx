@@ -1,5 +1,6 @@
 import { commonImages } from "@/assets";
 import { EventCard } from "../Cards";
+import { Button } from "@/components";
 
 const SectionFour = () => {
   return (
@@ -20,7 +21,7 @@ const SectionFour = () => {
 
       <div
         className={
-          "event flex flex-wrap justify-center items-stretch mt-6 md:mt-8 gap-6 pb-6 [&>div:last]:text-red-500"
+          "event flex flex-wrap justify-center items-start mt-6 md:mt-8 gap-6 pb-6 [&>div:last]:text-red-500"
         }
       >
         {[
@@ -45,21 +46,22 @@ const SectionFour = () => {
             image: commonImages.Aboutus1,
           },
 
-          {
-            title: "Possibilités de stages",
-            linkText: "Voir les offres de stages",
-            href: "/events/internship-opportunities",
-            image: commonImages.Aboutus4,
-          },
+          // {
+          //   title: "Possibilités de stages",
+          //   linkText: "Voir les offres de stages",
+          //   href: "/events/internship-opportunities",
+          //   image: commonImages.Aboutus4,
+          // },
         ].map((event, idx) => (
           <EventCard
             key={idx}
             title={event.title}
-            linkText={event.linkText}
-            href={event.href}
             image={event.image}
           />
         ))}
+      </div>
+      <div className={"flex mt-12 justify-center items-center"}>
+        <Button href={"/news/events"} text={"voir tout nos événements"} />
       </div>
     </div>
   );

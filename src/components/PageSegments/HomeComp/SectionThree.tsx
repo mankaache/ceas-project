@@ -16,7 +16,7 @@ const SectionThree = () => {
         Nous proposons des programmes de formation aux organisations partenaires
         et aux organisations individuelles
       </p>
-      <div className={"flex flex-wrap gap-6 justify-center items-stretch"}>
+      <div className={"flex flex-wrap gap-6 items-stretch"}>
         {[
           {
             title:
@@ -37,7 +37,7 @@ const SectionThree = () => {
       </div>
 
       <div className={"flex mt-12 justify-center items-center"}>
-        <Button href={"/training-programs"} text={"Voir tout"} />
+        <Button href={"/training-programs"} text={"Voir tout nos programmes de formations"} />
       </div>
     </div>
   );

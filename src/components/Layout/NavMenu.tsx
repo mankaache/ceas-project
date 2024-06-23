@@ -102,7 +102,7 @@ function NavMenuItem({ item }: { item: (typeof NAV_MENU)[number] }) {
         <NavigationMenuItem>
           {item.children ? (
             <>
-              <NavigationMenuTrigger className="text-lg">
+              <NavigationMenuTrigger className="text-base">
                 {item.title}
               </NavigationMenuTrigger>
               <NavigationMenuContent
@@ -129,7 +129,7 @@ function NavMenuItem({ item }: { item: (typeof NAV_MENU)[number] }) {
           ) : (
             <Link href={item.href} legacyBehavior passHref>
               <NavigationMenuLink
-                className={cn(navigationMenuTriggerStyle(), "text-lg")}
+                className={cn(navigationMenuTriggerStyle(), "text-base")}
               >
                 {item.title}
               </NavigationMenuLink>
