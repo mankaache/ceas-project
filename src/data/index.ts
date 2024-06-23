@@ -26,7 +26,7 @@ export const menuMap: { [key: string]: string } = {
   events: "Événements",
   admission: "Admission",
   "training-programs": "Formations",
-  "e-learning": "Accedez au E-learning",
+  "e-learning": "Platforme E-learning",
   contact: "Contact",
   about: "À propos",
   home: "Accueil",
