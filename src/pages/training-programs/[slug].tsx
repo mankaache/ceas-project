@@ -82,7 +82,7 @@ This is a sample training program`,
           </h1>
         </div>
       ) : (
-        <div className="w-full p-4 max-w-screen-md py-4 mx-auto flex flex-col items-start justify-center gap-4">
+        <div className="w-full p-4 max-w-screen-lg py-4 mx-auto flex flex-col items-start justify-center gap-4 mb-20">
           {/* <h1 className="title text-4xl font-semibold pt-4">{program.title}</h1>
 
           <p className="excerpt text-slate-500">{program.excerpt}</p>

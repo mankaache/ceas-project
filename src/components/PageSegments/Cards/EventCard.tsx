@@ -6,15 +6,11 @@ import { useScreenSize } from "@/hooks";
 import React from "react";
 interface EventCardsProps {
   title: string;
-  linkText: string;
-  href: string;
   image?: string | StaticImageData;
   id?: string;
 }
 const EventCard = ({
   title,
-  linkText,
-  href,
   image = commonImages.noImage,
 }: EventCardsProps) => {
   const { isMd, isXl, isXxl } = useScreenSize();
@@ -22,10 +18,9 @@ const EventCard = ({
   React.useEffect(() => {}, [isMd]);
 
   return (
-    <Link
-      href={href}
+    <div
       className={cn(
-        "card w-full md:w-[48%] lg:w-[31%] cursor-pointer transition-all bg-white shadow-lg rounded-lg border border-gray-200 py-3 px-2"
+        "card w-full md:w-[30%] lg:w-[25%] transition-all bg-white shadow-lg rounded-lg border border-gray-200 py-3 px-2"
       )}
     >
       <div
@@ -42,15 +37,15 @@ const EventCard = ({
         />
       </div>
 
-      <h3 className={"block font-semibold text-primary text-2xl pt-1 pb-1"}>
+      <h3 className={"block font-semibold text-primary text-lg pt-1 pb-1"}>
         {title}
       </h3>
       {/*<p className={'text-base pb-3 text-light'}>Lorem Ipsum is simply dummy text </p>*/}
-
+{/* 
       <Link href={href} className={"text-center text-lg text-secondary "}>
         {linkText}
-      </Link>
-    </Link>
+      </Link> */}
+    </div>
   );
 };
 

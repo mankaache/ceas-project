@@ -1,107 +1,113 @@
 import Link from "next/link";
-import { commonImages } from "@/assets";
 import Image from "next/image";
-import { BaseLayout } from "@/components";
+import { useRouter } from "next/router";
+import { commonImages } from "@/assets";
+import { IEvent } from "@/models";
+import {  FaTags } from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
-const Event = () => {
-  const Events = [
-    {
-      id: "1",
-      name: "Conférences",
-      category: "conferences",
-      image: commonImages.Aboutus1,
-      desc:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
-        " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type" +
-        " and scrambled it to make a type specimen book",
-    },
-    {
-      id: "2",
-      name: "Excursions",
-      category: "field-trips",
-      image: commonImages.Aboutus2,
-      desc:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
-        " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type" +
-        " and scrambled it to make a type specimen book",
-    },
-    {
-      id: "3",
-      name: "Défenses",
-      category: "defenses",
-      image: commonImages.Aboutus2,
-      desc:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
-        " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type" +
-        " and scrambled it to make a type specimen book",
-    },
-    {
-      id: "4",
-      name: "Possibilités de stages",
-      category: "internships",
-      image: commonImages.Aboutus4,
-      desc:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
-        " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type" +
-        " and scrambled it to make a type specimen book",
-    },
-  ];
+import { EVENTS, eventCategoryMap } from "@/data";
+import { BaseLayout } from "@/components";
+import { TfiLocationPin } from "react-icons/tfi";
+import { FaCalendar } from "react-icons/fa6";
+import React from "react";
+import { useCollectionData } from "react-firebase-hooks/firestore";
+import { collection, query, where } from "firebase/firestore";
+import { firestore } from "@/firebase/config";
+import { InnerPageLoader } from "@/components/loaders";
+import { InnerPageError } from "@/components/errors";
+import dayjs from "dayjs";
+
+const EventCategory = () => {
+  const router = useRouter();
+  // const { eventCategory } = router.query;
+
+  const [filteredEvents, loading, error] = useCollectionData(
+    query(
+      collection(firestore, "events")
+      // where("category", "==", eventCategory)
+    )
+  );
+
+  if (loading) return <InnerPageLoader loading={loading} />;
+
+  if (error) return <InnerPageError error={error} />;
+
   return (
     <BaseLayout>
-      <div>
-        <h1 className={"font-bold text-3xl text-center pt-8 capitalize"}>
-          Événements
-        </h1>
-        <div
-          className={
-            "w-full max-w-screen-lg mx-auto flex flex-wrap flex-col md:flex-row gap-8 justify-center items-center py-8 px-3 md:px-8"
-          }
-        >
-          {Events.map((item) => (
-            <div
-              className={"pt-0 pb-4 shadow-lg rounded-lg w-full md:w-[48%]"}
-              key={item.id}
-            >
+      {!Boolean(filteredEvents?.length) ? (
+        <div className="flex items-center justify-center p-8">
+          <h1 className="text-4xl font-bold">
+            {/* Pas de {eventCategoryMap[eventCategory as string]} */}
+            Pas de Evenements
+          </h1>
+        </div>
+      ) : (
+        <div className={"pb-24 pt-2 md:pt-6  px-2 w-[96%] md:w-[85%] mx-auto"}>
+          <h1 className={"font-bold text-3xl text-center py-4 capitalize"}>
+            {/* {eventCategoryMap[eventCategory as string]} */}
+            Evenements
+          </h1>
+
+          <div className={"flex gap-5 flex-wrap items-center"}>
+            {filteredEvents?.map((item, idx) => (
               <div
-                // href={`/events/${item.eventType}`}
-                className="card w-full cursor-pointer hover:scale-100 transition-all bg-white flex flex-col items-start justify-between gap-2"
+                key={idx}
+                className={
+                  "card mt-6 w-full md:w-[48%] lg:w-[31%] bg-white shadow-lg rounded-lg"
+                }
               >
-                <div className="bg-black/20 w-full h-[250px] md:h-[300px] relative overflow-hidden rounded-lg mb-2">
+                <p
+                  className={
+                    "bg-black/20 w-full h-[300px] relative overflow-hidden rounded-lg mb-2"
+                  }
+                >
                   <Image
-                    src={item.image ?? commonImages.noImage}
+                    src={item.image.src}
                     fill
-                    alt="image"
-                    className={"w-full h-full object-cover"}
+                    priority
+                    alt={item.image.caption}
+                    objectFit="cover"
                   />
-                </div>
-
-                <div className="details px-2 flex flex-col items-start justify-center gap-2">
-                  <h3 className="font-semibold text-2xl pt-1 pb-1 px-2">
-                    {item.name}
+                </p>
+                <div className={"w-full py-3 px-2"}>
+                  <h3 className={"font-semibold text-2xl pt-2 pb-3"}>
+                    {item.title}
                   </h3>
-
-                  <p className={"px-2 "}>{item.desc}</p>
-
+                  <div className="flex items-center pb-3 justify-start text-xs text-slate-500 gap-4">
+                    <div className="location flex items-center justify-center gap-1">
+                      <TfiLocationPin size={18} />
+                      <p className={"font-semibold text-slate-500"}>
+                        {item.location}
+                      </p>
+                    </div>
+                    <div className="date flex items-center justify-center gap-2">
+                      <FaCalendar size={18} className="" />
+                      <p className="font-semibold text-slate-500">
+                        {dayjs(item.date).format("YYYY-MM-DD")}
+                      </p>
+                    </div>
+                  </div>
+                  <p className={"text-base pb-3 text-light"}>{item.excerpt}</p>
+                  <p className="w-auto items-center inline px-4 py-1 rounded-lg text-sm bg-primary justify-center gap-2 text-white capitalize">
+             
+              {item.category}
+            </p>
                   <Link
-                    href={`events/${item.category}`}
-                    className={"text-center text-lg text-secondary px-2 mt-2"}
+                    className={
+                      "pt-2 font-semibold inline-block text-center w-full text-primary text-base"
+                    }
+                    href={`events/${item.slug}`}
                   >
-                    <Button
-                      color="secondary"
-                      variant="outline"
-                      className="border-secondary text-base mx-auto hover:text-white"
-                    >
-                      Voir tout(es) les {item.name}
-                    </Button>
+                    Voir les détails
                   </Link>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </BaseLayout>
   );
 };
 
-export default Event;
+export default EventCategory;

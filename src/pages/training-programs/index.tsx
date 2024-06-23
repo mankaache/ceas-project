@@ -103,10 +103,10 @@ const Programs = () => {
             "text-3xl text-center capitalize font-bold pt-16 md:pt-20 pb-8 text-primary"
           }
         >
-          Voir tous les programmes de formation
+          Tous nos programmes de formation
         </h3>
 
-        <div className={"flex flex-wrap gap-6 justify-center items-center"}>
+        <div className={"flex flex-wrap gap-6 items-center"}>
           {FORMATIONS.map((item, idx) => (
             <FormationCards
               title={item.title}

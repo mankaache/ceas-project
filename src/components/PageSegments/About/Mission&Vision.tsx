@@ -19,7 +19,7 @@ const MissionVision = () => {
               alt={"Mission"}
             />
           </div>
-          <h3 className={"font-semibold text-3xl md:text-3xl pb-3"}>Mission</h3>
+          <h3 className={"font-semibold text-3xl md:text-3xl pb-3"}>Notre Mission</h3>
           <div className={"text-lg text-justify pb-2"}>
             <p>
               Les missions du Centre d'Excellence et d'Application au Suivi de
@@ -66,7 +66,7 @@ const MissionVision = () => {
               alt={"Mission"}
             />
           </div>
-          <h3 className={"font-semibold text-3xl md:text-3xl pb-3"}>Vision</h3>
+          <h3 className={"font-semibold text-3xl md:text-3xl pb-3"}>Notre Vision</h3>
           <div className={"text-lg text-justify pb-2"}>
             <p>
               Le CEAS-GRNE ambitionne à l’horizon 2030 de mettre sur le marché
