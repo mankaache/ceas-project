@@ -7,13 +7,36 @@ import {
   FaSquareInstagram,
   FaXTwitter,
 } from "react-icons/fa6";
+import emailjs from '@emailjs/browser';
 
 import { FaFacebook } from "react-icons/fa";
 import Link from "next/link";
 import { BaseLayout } from "@/components";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useRef } from "react";
+import { toast } from "react-toastify";
 
 const Contact = () => {
+  const form = useRef();
+
+  const sendEmail = (e:any) => {
+    e.preventDefault();
+//@ts-ignore
+    emailjs.sendForm('service_509jxip', 'template_n9ka3hc', form.current, {
+        publicKey: 'JsFmBX8wJK_EOCOcg',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+          toast.success('message envoyé avec succès')
+          
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+          toast.error('message non envoyé')
+        },
+      );
+    }
   return (
     <BaseLayout>
       <div className={"antialiased bg-secondary/30 py-10 md:py-10"}>
@@ -87,13 +110,16 @@ const Contact = () => {
                   "relative z-10 bg-white w-full rounded-xl shadow-lg p-8 text-gray-600"
                 }
               >
-                <form className={"flex flex-col space-y-4 md:w-88"}>
+                <form
+                //@ts-ignore
+                ref={form} onSubmit={sendEmail} className={"flex flex-col space-y-4 md:w-88"}>
                   <div>
                     <label className={"text-sm"}>Votre nom</label>
                   </div>
                   <div>
                     <input
                       type={"text"}
+                      name="from_name"
                       className={
                         "ring-1 focus:ring-2 focus:ring-teal-300 ring-gray-300 w-full rounded-md px-4 py-2 outline-none "
                       }
@@ -106,6 +132,7 @@ const Contact = () => {
                   <div>
                     <input
                       type={"email"}
+                      name="from_email"
                       className={
                         "ring-1 focus:ring-2 focus:ring-teal-300 ring-gray-300 w-full rounded-md px-4 py-2 outline-none "
                       }
@@ -119,6 +146,7 @@ const Contact = () => {
                     <textarea
                       rows={6}
                       cols={7}
+                      name="message"
                       className={
                         "ring-1 focus:ring-2 focus:ring-teal-300 ring-gray-300 w-full rounded-md px-4 py-2 outline-none "
                       }
@@ -126,6 +154,7 @@ const Contact = () => {
                     ></textarea>
                   </div>
                   <button
+                  type="submit"
                     className={
                       "w-full inline-block self-end bg-secondary text-white font-bold rounded-lg px-8 py-3 uppercase text-sm"
                     }
