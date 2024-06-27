@@ -32,20 +32,20 @@ const Programs = () => {
     return [
       {
         title: "Connaissance et évaluation des ressources",
-        description:
-          "Lorem Why do we use it? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as",
+        description:""
+          // "Lorem Why do we use it? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as",
       },
 
       {
         title: "Gouvernance",
-        description:
-          "Lorem Why do we use it? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as",
+        description:""
+          // "Lorem Why do we use it? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as",
       },
 
       {
         title: "Pratique et éthique",
-        description:
-          "Lorem Why do we use it? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as",
+        description:""
+          // "Lorem Why do we use it? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as",
       },
     ];
   }, []);
@@ -67,10 +67,9 @@ const Programs = () => {
           <h3 className={"text-2xl uppercase text-center font-bold py-8"}>
             Les trois piliers qui constituent l’ensemble de notre formation
           </h3>
-
           <div
             className={
-              "w-full flex items-start lg:items-stretch gap-6 flex-col lg:flex-row"
+              "w-full flex items-start justify-center lg:items-stretch gap-6 flex-col lg:flex-row"
             }
           >
             {PILLARS.map((item, idx) => (
