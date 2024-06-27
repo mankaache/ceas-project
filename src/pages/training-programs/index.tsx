@@ -67,7 +67,6 @@ const Programs = () => {
           <h3 className={"text-2xl uppercase text-center font-bold py-8"}>
             Les trois piliers qui constituent l’ensemble de notre formation
           </h3>
-
           <div
             className={
               "w-full flex items-start justify-center lg:items-stretch gap-6 flex-col lg:flex-row"
