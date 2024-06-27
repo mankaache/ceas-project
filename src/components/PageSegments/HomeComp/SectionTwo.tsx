@@ -63,23 +63,24 @@ const SectionTwo = () => {
             "font-semibold text-3xl md:text-4xl lg:text-4xl mb-4 border-l-4 border-secondary pl-2"
           }
         >
-          Nous proposons des solutions pour réduire{" "}
-          <span className={"text-secondary"}> mauvaises pratiques </span>en
-          agriculture
+          Le CEAS-GRNE fournit des solutions adéquates
+          <span className={"text-secondary"}> aux problématiques </span>
+          qui interpellent les actions de suivi.
         </h3>
         <div className="flex flex-col items-center lg:items-start justify-center lg:pl-6 xl:pl-8">
           <p className={"text-lg leading-8 "}>
-            Il existe un besoin croissant d'un suivi indépendant de la manière
-            dont les pays du bassin du Congo appliquent les lois relatives aux
-            ressources naturelles. Même si de nombreux groupes indépendants font
-            cela, ils ne travaillent pas bien ensemble en raison de la méfiance,
-            de problèmes de qualité des données et d’objectifs divergents. Ce
-            manque de collaboration est un problème depuis plus d’une décennie.
+            Il met en symbiose l’innovation, la coordination et la
+            complémentarité en matière de surveillance. Ceci afin de réduire à
+            leur plus simple expression les mauvaises pratiques qui minent le
+            secteur de la gestion des ressources naturelles dans sa globalité.
           </p>
           <p className={"text-lg mt-2 leading-8"}>
-            Une équipe de spécialistes de l’organisation FLAG travaille depuis
-            2014 pour améliorer le contrôle indépendant de la réglementation
-            forestière dans le bassin du Congo.
+            Entre cours et références didactiques, travaux de groupes et
+            descentes sur le terrain, l’objectif visé à terme est de permettre
+            aux apprenants d’être outillé d’un savoir-faire en adéquation avec
+            les exigences techniques ; d’avoir la capacité de conduire avec
+            succès une action de suivi et être au final un vecteur de changement
+            qualitatif au sein de leurs organisations respectives.
           </p>
           <div className={"mt-8"}>
             <Button href={"/about"} text={"Voir plus"} />
