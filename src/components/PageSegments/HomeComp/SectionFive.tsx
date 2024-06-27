@@ -42,8 +42,8 @@ const SectionFive = () => {
             meilleures pratiques
           </h3>
           <p className={"text-lg md:text-xl mt-10 text-center md:text-left"}>
-            Amener les gens à faire les choses correctement est essentiel pour
-            l’environnement et l’écosystème dans son ensemble.
+            Nous avons pour ambition de former des praticiens qualifiés pour
+            assurer un suivi de la qualité des ressources naturelles
           </p>
           <div
             className={
