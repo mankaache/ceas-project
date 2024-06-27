@@ -72,10 +72,10 @@ const AllPrograms = () => {
               Knowledge and evaluation of forest resources
             </h3>
             <div className={"text-lg"}>
-              Lorem Why do we use it? It is a long established fact that a
+              {/* Lorem Why do we use it? It is a long established fact that a
               reader will be distracted by the readable content of a page when
               looking at its layout. The point of using Lorem Ipsum is that it
-              has a more-or-less normal distribution of letters, as
+              has a more-or-less normal distribution of letters, as */}
             </div>
           </div>
           <div className={"border-dashed border-4 p-3 border-secondary"}>
@@ -94,10 +94,10 @@ const AllPrograms = () => {
               Governance
             </h3>
             <div className={"text-lg"}>
-              Lorem Why do we use it? It is a long established fact that a
+              {/* Lorem Why do we use it? It is a long established fact that a
               reader will be distracted by the readable content of a page when
               looking at its layout. The point of using Lorem Ipsum is that it
-              has a more-or-less normal distribution of letters, as
+              has a more-or-less normal distribution of letters, as */}
             </div>
           </div>
           <div className={"border-dashed border-4 p-3 border-secondary"}>
@@ -116,10 +116,10 @@ const AllPrograms = () => {
               Practical and ethical
             </h3>
             <div className={"text-lg"}>
-              Lorem Why do we use it? It is a long established fact that a
+              {/* Lorem Why do we use it? It is a long established fact that a
               reader will be distracted by the readable content of a page when
               looking at its layout. The point of using Lorem Ipsum is that it
-              has a more-or-less normal distribution of letters, as
+              has a more-or-less normal distribution of letters, as */}
             </div>
           </div>
         </div>

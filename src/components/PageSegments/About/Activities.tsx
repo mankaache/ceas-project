@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { commonImages } from "@/assets";
 import { Button } from "@/components";
 import Link from "next/link";
@@ -23,16 +24,19 @@ const Activities = () => {
               <span className={"text-secondary"}>la durabilité</span>{" "}
             </h3>
             <p className={"mb-5 mt-4 text-justify"}>
-              Nous avons tous un rôle à jouer pour garantir un avenir durable.
-              Cela signifie trouver des moyens de répondre à nos besoins sans
-              nuire à la capacité des générations futures à répondre aux leurs.
-              Pour y parvenir, nous pouvons nous engager dans une variété
-              d’activités qui favorisent la durabilité. Celles-ci peuvent
-              impliquer des pratiques quotidiennes comme la réduction des
-              déchets et la conservation des ressources, ou des actions à plus
-              grande échelle comme soutenir des initiatives en matière
-              d’énergies renouvelables ou plaider en faveur de politiques
-              environnementales.
+              Dans sa perspective, le CEAS-GRNE forme des praticiens qualifiés,
+              capables de détecter et de rapporter les actes illégaux et
+              irréguliers posés dans le cadre de l’exploitation des ressources
+              naturelles, et d'impulser le changement vers des meilleures
+              pratiques de gestion durable. Pour y arriver, Il propose des
+              itinéraires de formation construits autour de la connaissance de
+              la ressource, la gouvernance, la pratique et l’éthique. Aussi il
+              assure la satisfaction des apprenants grâce à une formation
+              modulable, en fonction des besoins, alternant des cours en
+              présentiel et à distance, et des sessions pratiques sur le
+              terrain. L’encadrement y est assuré par une équipe diversifiée
+              d’hommes et de femmes formateurs, praticiens qualifiés et
+              expérimentés.
             </p>
             <div className={"flex flex-col lg:flex-row items-center gap-3"}>
               <Button

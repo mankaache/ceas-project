@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { commonImages } from "@/assets";
 import Image from "next/image";
 
@@ -25,23 +26,26 @@ const WhoWeAre = () => {
             />
           </div>
           <p className={" flex-1 leading-8 text-lg text-justify"}>
-            L’introduction des notions de bonne gouvernance dans le grand
-            secteur de la gestion des ressources naturelles a induit la
-            nécessité d’une surveillance plus accrue de l’application des textes
-            et réglementations dans les pays du bassin du Congo tant par les
-            administrations en charge du contrôle que par les tiers. Plus de 20
-            ans après l’extension de l’Observation Indépendante (OI) de
-            l’application des lois et réglementations dans la plupart des pays
-            africains, l’on constate que c’est dans le secteur forestier que
-            l’on observe le plus clairement une tendance vers la
-            professionnalisation de la surveillance indépendante. En effet, la
-            société civile et les communautés déploient une grande diversité
-            d’outils, procédures et technologies, autant que d’expertises plus
-            ou moins coordonnées pour réaliser des actions de suivi indépendant.
+            Parmi les précurseurs de la surveillance indépendante de
+            l’application des réglementations forestières, un groupe d’experts
+            réunis au sein de l’organisation Field Legality Advisory Group
+            (FLAG) a mené des consultations avec l’ensemble des parties
+            prenantes (secteur privé, administration en charge de la gestion et
+            du contrôle, les organisations de la société civile impliquées dans
+            cette activité, et d’autre personnes ressources) dans et en dehors
+            du bassin du Congo. L'objectif de ces consultations depuis dix ans,
+            était d'analyser de manière holistique les problèmes et les
+            solutions possibles pour améliorer la qualité et la crédibilité de
+            l'observation indépendante. Au cours de ces discussions, il est
+            apparu clairement que l'absence d'espaces d'apprentissage mutuel et
+            de renforcement des capacités constituait un obstacle majeur. C'est
+            dans ce contexte que FLAG a pris l'initiative de créer le Centre
+            d'Excellence et d'Application au Suivi de la Gestion des Ressources
+            Naturelles (CEAS-GRNE). 
           </p>
         </div>
       </div>
-      <div className={"my-20 w-[90%] md:w-[80%] mx-auto max-w-screen-2xl"}>
+      <div className={"mt-20 w-[90%] md:w-[80%] mx-auto max-w-screen-2xl"}>
         <h3 className={"text-center text-xl font-semibold"}></h3>
 
         <div
@@ -59,22 +63,32 @@ const WhoWeAre = () => {
             />
           </div>
           <p className={" flex-1 leading-8 text-lg text-justify"}>
-            L’introduction des notions de bonne gouvernance dans le grand
-            secteur de la gestion des ressources naturelles a induit la
-            nécessité d’une surveillance plus accrue de l’application des textes
-            et réglementations dans les pays du bassin du Congo tant par les
-            administrations en charge du contrôle que par les tiers. Plus de 20
-            ans après l’extension de l’Observation Indépendante (OI) de
-            l’application des lois et réglementations dans la plupart des pays
-            africains, l’on constate que c’est dans le secteur forestier que
-            l’on observe le plus clairement une tendance vers la
-            professionnalisation de la surveillance indépendante. En effet, la
-            société civile et les communautés déploient une grande diversité
-            d’outils, procédures et technologies, autant que d’expertises plus
-            ou moins coordonnées pour réaliser des actions de suivi indépendant.
+          Le CEAS-GRNE, dédié à la formation en
+            surveillance de la gestion des ressources naturelles, est devenu
+            opérationnel en 2022. Il a été financé par l'Agence Norvégienne pour
+            la Coopération et le Développement (NORAD) dans le cadre du projet
+            « Technologies innovantes pour la lutte contre l’exploitation
+            forestière illégale du bois : mise à l’échelle des plateformes
+            d’identification et de transparence du bois, Composante du bassin du
+            Congo ». Il propose une formation continue certifiante des
+            praticiens qualifiés en suivi de la gestion des ressources
+            naturelles. Depuis son lancement, le CEAS-GRNE joue un rôle crucial
+            dans le renforcement des capacités et la promotion des bonnes
+            pratiques en matière de surveillance de la gestion des ressources
+            naturelles. Espace d'apprentissage mutuel, le centre contribue ainsi
+            à la professionnalisation et à l'efficacité de la surveillance de la
+            gestion des ressources naturelles.
           </p>
         </div>
       </div>
+      <p className="w-[80%] my-12 text-lg mx-auto text-justify"> Le CEAS-GRNE en tant que
+            d’expertise technique dédié à la formation en surveillance de la
+            gestion des ressources naturelles, est l’option la plus convenable
+            dans la région car il répond à la fois aux besoins de consolidation
+            des acquis et d’innovation des techniques, de partage d’expérience,
+            de transfert d’expertise, et de constitution d’une communauté de
+            bonnes pratiques en matière de surveillance de la gestion des
+            ressources naturelles.</p>
     </div>
   );
 };

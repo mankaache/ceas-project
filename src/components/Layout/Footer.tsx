@@ -43,7 +43,7 @@ const Footer = () => {
               <Link
                 href={process.env.NEXT_PUBLIC_ADMIN_DASHBOARD_URL as string}
               >
-                Administrateur
+                Connexion
               </Link>
             </div>
             <div className={"space-y-1 *:block *:py-3 *:text-xl *:text-white"}>
@@ -65,18 +65,21 @@ const Footer = () => {
                 "flex justify-center items-center gap-5 *:w-8 *:h-8 *:bg-white *:rounded-lg *:text-[#444] *:flex *:justify-center *:items-center"
               }
             >
-              <div>
+              <Link
+                href={
+                  "https://www.facebook.com/centredexcellenceetdapplication"
+                }
+              >
                 <FaFacebookF size={24} />
-              </div>
-              <div>
-                <FiInstagram size={24} />
-              </div>
-              <div>
+              </Link>
+              <Link href={"https://www.linkedin.com/company/ceas-grne/"}>
                 <FaLinkedinIn size={24} />
-              </div>
-              <div>
+              </Link>
+              <Link
+                href={"https://x.com/CeasGrne?t=GHyUwGT8UW8zGq94DadRNQ&s=08"}
+              >
                 <FaXTwitter size={24} />
-              </div>
+              </Link>
             </div>
           </div>
         </div>
