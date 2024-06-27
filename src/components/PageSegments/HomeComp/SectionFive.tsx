@@ -34,17 +34,13 @@ const SectionFive = () => {
         <div className={"flex-1"}>
           <h3
             className={
-              "font-semibold text-3xl leading-8 md:text-4xl xl:text-5xl mb-4  pl-2 text-center md:text-left"
+              "font-semibold text-3xl leading-8 md:text-4xl mb-4  pl-2 text-center md:text-left"
             }
           >
-            Nous <span className={"text-secondary"}> Priorisons </span>le
-            travail sur le terrain <br className={"block md:hidden"} /> et les
-            meilleures pratiques
+             Nous avons  <span className={"text-secondary"}>pour ambition </span>de former des praticiens qualifiés pour
+             assurer un suivi de la qualité des  <br className={"block md:hidden"} />  des ressources naturelles
           </h3>
-          <p className={"text-lg md:text-xl mt-10 text-center md:text-left"}>
-            Nous avons pour ambition de former des praticiens qualifiés pour
-            assurer un suivi de la qualité des ressources naturelles
-          </p>
+         
           <div
             className={
               "mt-12 flex items-center justify-center md:justify-start"
