@@ -37,7 +37,7 @@ const SectionFive = () => {
               "font-semibold text-3xl leading-8 md:text-4xl mb-4  pl-2 text-center md:text-left"
             }
           >
-             Nous avons  <span className={"text-secondary"}>pour ambition </span>de former des praticiens qualifiés pour
+             Nous avons  <span className={"text-secondary"}>pour ambition </span>de former des praticiens qualifiés, pour
              assurer un suivi de qualité des  <br className={"block md:hidden"} /> ressources naturelles
           </h3>
          
