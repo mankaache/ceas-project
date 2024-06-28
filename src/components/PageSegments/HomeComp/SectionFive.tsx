@@ -38,7 +38,7 @@ const SectionFive = () => {
             }
           >
              Nous avons  <span className={"text-secondary"}>pour ambition </span>de former des praticiens qualifiés pour
-             assurer un suivi de la qualité des  <br className={"block md:hidden"} />  des ressources naturelles
+             assurer un suivi de qualité des  <br className={"block md:hidden"} /> ressources naturelles
           </h3>
          
           <div

@@ -77,7 +77,7 @@ const SectionTwo = () => {
           <p className={"text-lg mt-2 leading-8"}>
             Entre cours et références didactiques, travaux de groupes et
             descentes sur le terrain, l’objectif visé à terme est de permettre
-            aux apprenants d’être outillé d’un savoir-faire en adéquation avec
+            aux apprenants d’être outillés d’un savoir-faire en adéquation avec
             les exigences techniques ; d’avoir la capacité de conduire avec
             succès une action de suivi et être au final un vecteur de changement
             qualitatif au sein de leurs organisations respectives.
