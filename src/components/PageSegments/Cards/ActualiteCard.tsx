@@ -2,12 +2,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { commonImages } from "@/assets";
-import { IEvent } from "@/models";
-import {  FaTags } from "react-icons/fa6";
-import { Button } from "@/components/ui/button";
-import { EVENTS, eventCategoryMap } from "@/data";
-import { BaseLayout } from "@/components";
 import { TfiLocationPin } from "react-icons/tfi";
 import { FaCalendar } from "react-icons/fa6";
 import React from "react";
@@ -18,24 +12,25 @@ import { InnerPageLoader } from "@/components/loaders";
 import { InnerPageError } from "@/components/errors";
 import dayjs from "dayjs";
 
-const EventCategory = () => {
-  const router = useRouter();
-  // const { eventCategory } = router.query;
+const ActualiteCard = () => {
+    const router = useRouter();
+    // const { eventCategory } = router.query;
+  
+    const [filteredEvents, loading, error] = useCollectionData(
+      query(
+        collection(firestore, "events")
+        // where("category", "==", eventCategory)
+      )
+    );
+  
+    if (loading) return <InnerPageLoader loading={loading} />;
+  
+    if (error) return <InnerPageError error={error} />;
 
-  const [filteredEvents, loading, error] = useCollectionData(
-    query(
-      collection(firestore, "events")
-      // where("category", "==", eventCategory)
-    )
-  );
-
-  if (loading) return <InnerPageLoader loading={loading} />;
-
-  if (error) return <InnerPageError error={error} />;
-
+    const eventsToDisplay = filteredEvents?.slice(0, 4);
   return (
-    <BaseLayout>
-      {!Boolean(filteredEvents?.length) ? (
+    <div>
+         {!Boolean(eventsToDisplay?.length) ? (
         <div className="flex items-center justify-center p-8">
           <h1 className="text-3xl capitalize font-semibold">
             {/* Pas de {eventCategoryMap[eventCategory as string]} */}
@@ -43,14 +38,10 @@ const EventCategory = () => {
           </h1>
         </div>
       ) : (
-        <div className={"pb-24 pt-2 md:pt-6  px-2 w-[96%] md:w-[85%] mx-auto"}>
-          <h1 className={"font-bold text-3xl text-center py-4 capitalize"}>
-            {/* {eventCategoryMap[eventCategory as string]} */}
-            Evenements
-          </h1>
-
-          <div className={"flex gap-5 flex-wrap items-start"}>
-            {filteredEvents?.map((item, idx) => (
+        <div className={"pb-24  px-2 w-[96%] mx-auto"}>
+          
+          <div className={"flex gap-7 flex-wrap items-start"}>
+            {eventsToDisplay?.map((item, idx) => (
               <div
                 key={idx}
                 className={
@@ -97,7 +88,7 @@ const EventCategory = () => {
                     className={
                       "pt-2 font-semibold inline-block text-center w-full text-primary text-base"
                     }
-                    href={`events/${item.slug}`}
+                    href={`news/events/${item.slug}`}
                   >
                     Voir les détails
                   </Link>
@@ -107,8 +98,8 @@ const EventCategory = () => {
           </div>
         </div>
       )}
-    </BaseLayout>
-  );
-};
+    </div>
+  )
+}
 
-export default EventCategory;
+export default ActualiteCard

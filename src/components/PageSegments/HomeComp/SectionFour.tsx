@@ -1,5 +1,5 @@
 import { commonImages } from "@/assets";
-import { EventCard } from "../Cards";
+import { ActualiteCard, EventCard } from "../Cards";
 import { Button } from "@/components";
 
 const SectionFour = () => {
@@ -8,7 +8,7 @@ const SectionFour = () => {
       <h3
         className={"text-center capitalize text-primary font-semibold text-3xl"}
       >
-        Nos événements
+        Notre Actualité
       </h3>
       <p
         className={
@@ -19,7 +19,7 @@ const SectionFour = () => {
         et proposons également de nombreuses opportunités de stages
       </p>
 
-      <div
+      {/* <div
         className={
           "event flex flex-wrap justify-center items-start mt-6 md:mt-8 gap-6 pb-6 [&>div:last]:text-red-500"
         }
@@ -59,10 +59,13 @@ const SectionFour = () => {
             image={event.image}
           />
         ))}
-      </div>
+      </div> */}
+
+      <ActualiteCard/>
       <div className={"flex mt-12 justify-center items-center"}>
         <Button href={"/news/events"} text={"voir tout nos événements"} />
       </div>
+
     </div>
   );
 };
