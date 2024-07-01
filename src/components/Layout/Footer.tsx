@@ -33,21 +33,23 @@ const Footer = () => {
             <div className={"space-y-1 *:block *:py-3 *:text-xl *:text-white"}>
               <Link href={"/about"}>À propos de nous</Link>
               <Link href={"/training-programs"}>Programmes de formation</Link>
-              <Link href={"/"}>Admission</Link>
-              <Link href={"/"}>Nouvelles</Link>
+              <Link href={"/news/admission"}>Admission</Link>
+              <Link href={"/"}>Platforme E-learning</Link>
             </div>
 
             <div className={"space-y-1 *:block *:py-3 *:text-xl *:text-white"}>
-              <Link href={"/"}>Politique de confidentialité</Link>
-              <Link href={"/"}>Termes et conditions</Link>
-              <Link
+              <Link href={"/media/videos"}>Videos</Link>
+              <Link href={"/media/photos"}>Photos</Link>
+              <Link href={"/media/articles"}>Articles</Link>
+              <Link href={"/media/documents"}>Documents</Link>
+             
+            </div>
+            <div className={"space-y-1 *:block *:py-3 *:text-xl *:text-white"}>
+            <Link
                 href={process.env.NEXT_PUBLIC_ADMIN_DASHBOARD_URL as string}
               >
                 Connexion
               </Link>
-            </div>
-            <div className={"space-y-1 *:block *:py-3 *:text-xl *:text-white"}>
-              <Link href={"/"}>FAQ</Link>
               <Link href={"/contact"}>Contactez-nous</Link>
             </div>
           </div>
