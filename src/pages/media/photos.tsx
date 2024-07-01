@@ -67,7 +67,7 @@ const Photos = () => {
 
   return (
     <BaseLayout>
-      <div className="w-full h-screen">
+      <div className="w-full  mb-20">
         <div className="w-full max-w-screen-2xl h-full px-2 md:px-4 py-4 mx-auto">
           <div className="docs bg-gray-50 h-full p-4 rounded-lg border shadow-md w-full mx-auto">
             <h1 className="title text-3xl text-center mb-2 font-poppins">
@@ -98,9 +98,9 @@ const Photos = () => {
                 </div>
               ) : (
                 filteredPhotos.map((photo, idx) => (
-                  <div key={idx} className="w-full md:w-[49%] lg:w-[32%] max-h-[250px] xl:max-h-[300px] ">
+                  <div key={idx} className="w-full">
                     <div
-                      className="rounded-lg hover:scale-[0.98] duration-300 relative border w-full aspect-square cursor-pointer"
+                      className="rounded-lg hover:scale-[0.98] duration-300 relative border aspect-square cursor-pointer w-full md:w-[49%] lg:w-[32%] max-h-[250px] xl:max-h-[300px] "
                       onClick={() => handleClick(idx, photo.src)}
                     >
                       <Image
@@ -113,7 +113,7 @@ const Photos = () => {
                         }}
                       />
                     </div>
-                    <p className="info text-white bg-primary p-3 rounded-bl-xl rounded-br-xl">
+                    <p className="w-full md:w-[49%] lg:w-[32%] text-white bg-primary p-3 rounded-bl-xl rounded-br-xl">
                       {photo.caption}
                     </p>
                   </div>
