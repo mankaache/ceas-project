@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -36,9 +37,9 @@ const EventCategory = () => {
     <BaseLayout>
       {!Boolean(filteredEvents?.length) ? (
         <div className="flex items-center justify-center p-8">
-          <h1 className="text-4xl font-bold">
+          <h1 className="text-3xl capitalize font-semibold">
             {/* Pas de {eventCategoryMap[eventCategory as string]} */}
-            Pas de Evenements
+            aucun événement trouvé pour l'instant
           </h1>
         </div>
       ) : (
