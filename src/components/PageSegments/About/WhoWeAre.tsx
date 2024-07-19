@@ -13,7 +13,7 @@ const WhoWeAre = () => {
           Qui sommes-nous?
         </h3>
 
-        <div
+        {/* <div
           className={"flex flex-col lg:flex-row items-start mt-4 gap-10 w-full"}
         >
           <div className={"relative flex-1 w-full max-h-[400px] aspect-square"}>
@@ -43,7 +43,7 @@ const WhoWeAre = () => {
             d'Excellence et d'Application au Suivi de la Gestion des Ressources
             Naturelles (CEAS-GRNE). 
           </p>
-        </div>
+        </div> */}
       </div>
       <div className={"mt-20 w-[90%] md:w-[80%] mx-auto max-w-screen-2xl"}>
         <h3 className={"text-center text-xl font-semibold"}></h3>
@@ -81,8 +81,7 @@ const WhoWeAre = () => {
           </p>
         </div>
       </div>
-      <p className="w-[80%] my-12 text-lg mx-auto text-justify"> Le CEAS-GRNE en tant que
-            d’expertise technique dédié à la formation en surveillance de la
+      <p className="w-[80%] my-12 text-lg mx-auto text-justify"> Le CEAS-GRNE en tant que expertise technique dédié à la formation en surveillance de la
             gestion des ressources naturelles, est l’option la plus convenable
             dans la région car il répond à la fois aux besoins de consolidation
             des acquis et d’innovation des techniques, de partage d’expérience,
