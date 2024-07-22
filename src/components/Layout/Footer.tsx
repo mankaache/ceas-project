@@ -38,10 +38,9 @@ const Footer = () => {
             </div>
 
             <div className={"space-y-1 *:block *:py-3 *:text-xl *:text-white"}>
-              <Link href={"/media/videos"}>Videos</Link>
-              <Link href={"/media/photos"}>Photos</Link>
-              <Link href={"/media/articles"}>Articles</Link>
-              <Link href={"/media/documents"}>Documents</Link>
+              <Link href={"/news/events"}>Evenements</Link>
+              <Link href={"/media/photos"}>mediatheque</Link>
+              <Link href={"#"}>Alumni</Link>
              
             </div>
             <div className={"space-y-1 *:block *:py-3 *:text-xl *:text-white"}>

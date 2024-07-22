@@ -101,6 +101,8 @@ html {
   justify-content: center;
   align-items: center;
   position: relative;
+  /* columns: #fff; */
+
 }
 .home-slide {
   filter: contrast(100%) hue-rotate(8deg);
@@ -113,7 +115,7 @@ html {
   position: absolute;
   top: 0;
   left: 0;
-  /*z-index: 100;*/
+  /* z-index: 100; */
 }
 .swiper-slide img {
   display: block;
