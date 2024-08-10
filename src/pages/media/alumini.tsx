@@ -5,19 +5,20 @@ import { Button } from "@/components/ui/button";
 import { firestore } from "@/firebase/config";
 import { useSubcategories } from "@/firebase/helpers";
 import { cn } from "@/lib/utils";
-import { IDocument } from "@/models";
+import { IAlumini, IDocument } from "@/models";
 import { collection } from "firebase/firestore";
 import React from "react";
+import Image from "next/image";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { FaDownload } from "react-icons/fa6";
 import { IoDocumentTextOutline } from "react-icons/io5";
 
-const Documents = () => {
+const Alumini = () => {
   const [category, setCategory] = React.useState("");
 
-  const [categories, catLoading, catError] = useSubcategories("documents");
-  const [documents, loading, error] = useCollectionData(
-    collection(firestore, "documents")
+  const [categories, catLoading, catError] = useSubcategories("alumini");
+  const [alumini, loading, error] = useCollectionData(
+    collection(firestore, "alumini")
   );
 
   const categoryLabels = React.useMemo(() => {
@@ -40,17 +41,17 @@ const Documents = () => {
 
   const filteredDocs = React.useMemo(() => {
     return (
-      documents?.filter((document) => {
+      alumini?.filter((alumini) => {
         // if (category === "tout") {
         //   return true;
         // }
-        if (category === document.category) {
+        if (category === alumini.category) {
           return true;
         }
         return false;
       }) || []
     );
-  }, [category, documents]);
+  }, [category, alumini]);
 
   if (loading) return <InnerPageLoader loading={loading} />;
 
@@ -62,7 +63,7 @@ const Documents = () => {
         <div className="w-full max-w-screen-2xl h-full px-2 md:px-4 py-4 mx-auto">
           <div className="docs bg-gray-50 h-full p-4 rounded-lg border shadow-md w-full mx-auto">
             <h1 className="title text-3xl text-center mb-2 font-poppins">
-              Documents
+              Alumni
             </h1>
             <p className="p-2">Catégories</p>
             <div className="categories flex flex-wrap gap-2 mt-2 mb-8">
@@ -85,12 +86,12 @@ const Documents = () => {
             <div className="flex flex-wrap gap-6">
               {!Boolean(filteredDocs.length) ? (
                 <div className="flex items-center justify-center text-lg text-center w-full py-4">
-                  Aucun document pour la catégorie sélectionnée
+                  Aucun Alumni pour la catégorie sélectionnée
                 </div>
               ) : (
                 filteredDocs.map((doc, idx) => (
-                  <div key={idx} className="w-full md:w-[48%]">
-                    <DocumentView key={idx} doc={doc as IDocument} />
+                  <div key={idx} className="w-full md:w-[40%] lg:w-[30%]">
+                    <AluminiView key={idx} doc={doc as IAlumini} />
                   </div>
                 ))
               )}
@@ -102,38 +103,33 @@ const Documents = () => {
   );
 };
 
-const DocumentView = ({ doc }: { doc: IDocument }) => {
+const AluminiView = ({ doc }: { doc: IAlumini }) => {
   return (
-    <div className="flex items-stretch justify-start m-2 bg-blue-200/10 p-3 rounded-lg">
-      <div className="icon border-r">
-        <IoDocumentTextOutline color="#AB0000" size={50} />
-      </div>
-      <div className="doc w-full px-2 flex flex-col gap-1 items-start justify-center">
-        <div className="w-full flex flex-row items-center justify-between pb-1">
-          <div className="title text-base font-semibold">{doc.title}</div>
-          <a href={doc.src}>
-            <Button
-              variant="outline"
-              className="hidden lg:flex hover:text-white items-center justify-center gap-2 border border-primary text-primary"
-            >
-              <FaDownload /> Télécharger
-            </Button>
-          </a>
+    <div className="flex items-stretch justify-start m-2">
+      <div className="flex flex-col">
+        <div className="flex justify-start items-center gap-6">
+          <div className="relative w-28 h-28 rounded-full ">
+            <Image
+              // @ts-ignore
+              src={doc.src}
+              className="rounded-full border-4 border-secondary"
+              alt={doc.title}
+              fill
+              priority
+            />
+          </div>
+          <div>
+            <h2 className="font-semibold text-xl text-blue-950 capitalize">
+              {doc.title}
+            </h2>
+            <p className="text-gray-500 text-sm capitalize">{doc.role}</p>
+          </div>
         </div>
 
-        <div className="description text-sm">{doc?.description}</div>
-
-        <a href={doc.src} target="_blank" rel="noopener noreferrer">
-          <Button
-            variant="outline"
-            className="flex lg:hidden hover:text-white items-center justify-center gap-2 border border-primary mt-2"
-          >
-            <FaDownload /> Télécharger
-          </Button>
-        </a>
+        <div className="mt-3 text-base">{doc.description}</div>
       </div>
     </div>
   );
 };
 
-export default Documents;
+export default Alumini;
