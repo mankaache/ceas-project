@@ -12,7 +12,7 @@ import { useCollectionData } from "react-firebase-hooks/firestore";
 import "react-image-lightbox/style.css";
 
 const Videos = () => {
-  const [category, setCategory] = React.useState("tout");
+  const [category, setCategory] = React.useState("");
 
   const [categories, catLoading, catError] = useSubcategories("videos");
   const [videos, loading, error] = useCollectionData(
@@ -22,7 +22,7 @@ const Videos = () => {
   const categoryLabels = React.useMemo(() => {
     const categoriesSet: Set<string> = new Set();
 
-    categoriesSet.add("tout");
+    // categoriesSet.add("tout");
 
     categories?.forEach((category) => {
       categoriesSet.add(category.label);
@@ -31,12 +31,18 @@ const Videos = () => {
     return Array.from(categoriesSet);
   }, [categories]);
 
+  React.useEffect(() => {
+    if (categoryLabels.length > 0 && category === "") {
+      setCategory(categoryLabels[0]);
+    }
+  }, [categoryLabels, category]);
+
   const filteredVideos = React.useMemo(() => {
     return (
       videos?.filter((video) => {
-        if (category === "tout") {
-          return true;
-        }
+        // if (category === "tout") {
+        //   return true;
+        // }
         if (category === video.category) {
           return true;
         }
@@ -75,7 +81,7 @@ const Videos = () => {
               ))}
             </div>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-2">
               {!Boolean(filteredVideos.length) ? (
                 <div className="flex items-center justify-center text-lg text-center w-full py-4">
                   Aucune video pour la catégorie sélectionnée
@@ -84,7 +90,7 @@ const Videos = () => {
                 filteredVideos.map((video, idx) => (
                   <div
                     key={idx}
-                    className="rounded-lg hover:scale-[0.99] duration-300 relative border w-full md:w-[49%] lg:w-[32%] aspect-square max-h-[250px] xl:max-h-[300px] cursor-pointer"
+                    className="rounded-lg hover:scale-[0.99] duration-300 relative w-full md:w-[49%] lg:w-[32%] aspect-square max-h-[250px] xl:max-h-[300px] cursor-pointer"
                   >
                     <video
                       src={video.src}
@@ -98,7 +104,7 @@ const Videos = () => {
                     >
                       Your browser does not support the video tag.
                     </video>
-                    <div className="info text-white bg-primary p-4 mt-2 rounded-tl-xl">
+                    <div className="info text-white bg-primary p-4 ">
                       <p className="tite font-bold text-lg">{video.title}</p>
                       <p className="tite mt-2">{video.description}</p>
                     </div>

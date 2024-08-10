@@ -1,5 +1,7 @@
 import { commonImages } from "@/assets";
 import Image from "next/image";
+import Teamcards from "./Teamcards";
+import TeamMembers from "./TeamMembers";
 
 const OurTeam = () => {
   return (
@@ -15,7 +17,7 @@ const OurTeam = () => {
             notre entreprise
           </p>
         </div>
-        <div className="flex relative justify-center items-center flex-wrap pt-2 h-[400px] md:h-[600px] aspect-square max-w-full">
+        {/* <div className="flex relative justify-center items-center flex-wrap pt-2 h-[400px] md:h-[600px] aspect-square max-w-full">
           <Image
             fill
             objectFit="fill"
@@ -23,7 +25,12 @@ const OurTeam = () => {
             alt={"team"}
             className={""}
           />
+        </div> */}
+        <div className="w-[95%] md:w-[90%] mx-auto mt-14">
+        <TeamMembers/>
+
         </div>
+
       </div>
     </div>
   );

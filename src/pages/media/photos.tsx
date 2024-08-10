@@ -15,7 +15,7 @@ import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 
 const Photos = () => {
-  const [category, setCategory] = React.useState("tout");
+  const [category, setCategory] = React.useState("");
 
   const [categories, catLoading, catError] = useSubcategories("photos");
   const [photos, loading, error] = useCollectionData(
@@ -25,7 +25,7 @@ const Photos = () => {
   const categoryLabels = React.useMemo(() => {
     const categoriesSet: Set<string> = new Set();
 
-    categoriesSet.add("tout");
+    // categoriesSet.add("tout");
 
     categories?.forEach((category) => {
       categoriesSet.add(category.label);
@@ -34,12 +34,18 @@ const Photos = () => {
     return Array.from(categoriesSet);
   }, [categories]);
 
+  React.useEffect(() => {
+    if (categoryLabels.length > 0 && category === "") {
+      setCategory(categoryLabels[0]);
+    }
+  }, [categoryLabels, category]);
+
   const filteredPhotos = React.useMemo(() => {
     return (
       photos?.filter((photo) => {
-        if (category === "tout") {
-          return true;
-        }
+        // if (category === "tout") {
+        //   return true;
+        // }
         if (category === photo.category) {
           return true;
         }
@@ -91,16 +97,17 @@ const Photos = () => {
               ))}
             </div>
 
-            <div className="flex flex-wrap  gap-4">
+            <div className="flex flex-wrap justify-center sm:justify-start items-stretch sm:items-start w-full gap-4">
               {!Boolean(filteredPhotos.length) ? (
                 <div className="flex items-center justify-center text-lg text-center w-full py-4">
                   Aucune photo pour la catégorie sélectionnée
                 </div>
               ) : (
                 filteredPhotos.map((photo, idx) => (
-                  <div key={idx} className="w-full">
+                  <div key={idx} className="w-full sm:w-auto">
+                    <div className=" sm:w-[16em]">
                     <div
-                      className="rounded-lg hover:scale-[0.98] duration-300 relative border aspect-square cursor-pointer w-full md:w-[49%] lg:w-[32%] max-h-[250px] xl:max-h-[300px] "
+                      className="rounded-lg hover:scale-[0.98] duration-300 relative border aspect-square cursor-pointer "
                       onClick={() => handleClick(idx, photo.src)}
                     >
                       <Image
@@ -113,9 +120,10 @@ const Photos = () => {
                         }}
                       />
                     </div>
-                    <p className="w-full md:w-[49%] lg:w-[32%] text-white bg-primary p-3 rounded-bl-xl rounded-br-xl">
+                    <p className="w-full text-white bg-primary p-3 rounded-bl-xl rounded-br-xl">
                       {photo.caption}
                     </p>
+                    </div>
                   </div>
                 ))
               )}

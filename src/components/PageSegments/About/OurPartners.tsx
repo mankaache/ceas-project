@@ -13,6 +13,8 @@ const OurPartners = () => {
             commonImages.partner1,
             commonImages.partner2,
             commonImages.partner3,
+            commonImages.partner4,
+            commonImages.partner5
           ].map((partner, idx) => (
             <div
               key={idx}

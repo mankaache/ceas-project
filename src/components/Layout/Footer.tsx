@@ -30,17 +30,17 @@ const Footer = () => {
               "flex flex-col sm:flex-row justify-center w-full sm:justify-between sm:items-start  border-b border-white"
             }
           >
-            <div className={"space-y-1 *:block *:py-3 *:text-xl *:text-white"}>
+            <div className={"space-y-1 *:block *:py-3 *:text-base *:text-white"}>
+              <h3 className="font-bold">Quick Links</h3>
               <Link href={"/about"}>À propos de nous</Link>
-              <Link href={"/training-programs"}>Programmes de formation</Link>
-              <Link href={"/news/admission"}>Admission</Link>
-              <Link href={"/"}>Platforme E-learning</Link>
+              <Link href={"/media/photos"}>Photos</Link>
+              <Link href={"/media/videos"}>videos</Link>
+              <Link href={"/media/articles"}>Articles</Link>
             </div>
 
             <div className={"space-y-1 *:block *:py-3 *:text-xl *:text-white"}>
               <Link href={"/news/events"}>Evenements</Link>
-              <Link href={"/media/photos"}>mediatheque</Link>
-              <Link href={"#"}>Alumni</Link>
+              <Link href={"/media/alumini"}>Alumni</Link>
              
             </div>
             <div className={"space-y-1 *:block *:py-3 *:text-xl *:text-white"}>
