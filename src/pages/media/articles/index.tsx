@@ -27,7 +27,7 @@ function formatDate(dateString: string): string {
 
 const Articles = () => {
 
-  const [category, setCategory] = React.useState("tout");
+  const [category, setCategory] = React.useState("");
   const [categories, catLoading, catError] = useSubcategories("articles");
   const [articles, loading, error] = useCollectionData(
     query(collection(firestore, "articles"), orderBy("modifiedAt", "desc"))
@@ -39,7 +39,7 @@ const Articles = () => {
   const categoryLabels = React.useMemo(() => {
     const categoriesSet: Set<string> = new Set();
 
-    categoriesSet.add("tout");
+    // categoriesSet.add("tout");
 
     categories?.forEach((category) => {
       categoriesSet.add(category.label);
@@ -48,12 +48,18 @@ const Articles = () => {
     return Array.from(categoriesSet);
   }, [categories]);
 
+  React.useEffect(() => {
+    if (categoryLabels.length > 0 && category === "") {
+      setCategory(categoryLabels[0]);
+    }
+  }, [categoryLabels, category]);
+
   const filteredArticles = React.useMemo(() => {
     return (
       articles?.filter((document) => {
-        if (category === "tout") {
-          return true;
-        }
+        // if (category === "tout") {
+        //   return true;
+        // }
         if (category === document.category) {
           return true;
         }

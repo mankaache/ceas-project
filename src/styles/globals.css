@@ -93,6 +93,13 @@ html {
   height: 100%;
 }
 
+.creative-border{
+  border: 5px solid #a9bf16;
+  border-image: linear-gradient(#a9bf16, #2E3B16) 1;
+
+  border-radius: 50%;
+}
+
 .swiper-slide {
   text-align: center;
   font-size: 18px;

@@ -38,8 +38,9 @@ const Navbar = () => {
                 </p>
               </div>
             </Link>
-
-            <div className="hidden md:flex">
+            
+            <div>
+               <div className="hidden md:flex">
               <NavMenu />
             </div>
 
@@ -50,10 +51,12 @@ const Navbar = () => {
                 </div>
               </div> */}
 
-              <div className={"xl:hidden"}>
+              <div className={"md:hidden"}>
                 <Sidebar />
               </div>
             </div>
+            </div>
+           
           </nav>
         </header>
         {/* <div

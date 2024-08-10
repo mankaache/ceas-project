@@ -60,32 +60,30 @@ export const NAV_MENU: {
     title: menuMap["home"],
     href: "/",
   },
-  {
-    title: menuMap["about"],
-    href: "/about",
-  },
+  // {
+  //   title: menuMap["about"],
+  //   href: "/about",
+  // },
   {
     title: menuMap["training-programs"],
     href: "/training-programs",
   },
   {
-    title: menuMap["media"],
-    href: "/media",
-    children: media,
+    title: menuMap["documents"],
+    href: "/media/documents",
   },
   {
-    title: menuMap["news"],
-    href: "/news",
-    children: news,
+    title: menuMap["admission"],
+    href: "/news/admission",
   },
   {
     title: menuMap["e-learning"],
     href: process.env.NEXT_PUBLIC_E_LEARNING_URL as string,
   },
-  {
-    title: menuMap["contact"],
-    href: "/contact",
-  },
+  // {
+  //   title: menuMap["contact"],
+  //   href: "/contact",
+  // },
 ];
 
 function NavMenuItem({ item }: { item: (typeof NAV_MENU)[number] }) {
@@ -107,7 +105,7 @@ function NavMenuItem({ item }: { item: (typeof NAV_MENU)[number] }) {
               </NavigationMenuTrigger>
               <NavigationMenuContent
                 className={cn(
-                  "text-md min-w-[130px] gap-3 p-2 md:min-w-[130px] lg:min-w-[130px]"
+                  "text-base min-w-[130px] gap-3 p-2 md:min-w-[130px] lg:min-w-[130px]"
                 )}
               >
                 <ul>
@@ -186,10 +184,12 @@ export function NavMenu() {
       return true;
     });
   }, [isMd, isXl]);
+
+
   return (
     <NavigationMenu>
       <NavigationMenuList className="space-x-1">
-        {NAV_ITEMS.map((item) => (
+        {NAV_MENU.map((item) => (
           <NavMenuItem key={item.title} item={item} />
         ))}
       </NavigationMenuList>
