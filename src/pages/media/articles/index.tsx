@@ -54,6 +54,8 @@ const Articles = () => {
     }
   }, [categoryLabels, category]);
 
+
+
   const filteredArticles = React.useMemo(() => {
     return (
       articles?.filter((document) => {
