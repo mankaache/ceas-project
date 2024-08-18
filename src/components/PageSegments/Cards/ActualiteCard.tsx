@@ -27,7 +27,10 @@ const ActualiteCard = () => {
   
     if (error) return <InnerPageError error={error} />;
 
-    const eventsToDisplay = filteredEvents?.slice(0, 4);
+
+    const eventsReverse = filteredEvents?.reverse()
+
+     const eventsToDisplay = eventsReverse?.slice(0, 4);
   return (
     <div>
          {!Boolean(eventsToDisplay?.length) ? (

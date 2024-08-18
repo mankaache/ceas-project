@@ -22,7 +22,7 @@ const Home = () => {
       <SectionThree />
       <SectionFour />
       <SectionFive />
-      <div className={"bg-blue-900  w-full  py-10 "}>
+      {/* <div className={"bg-blue-900  w-full  py-10 "}>
         <div
           className={
             "w-[80%] md:w-[90%] max-w-screen-2xl mx-auto flex items-center justify-center gap-12 lg:flex-row flex-col"
@@ -50,7 +50,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </BaseLayout>
   );
 };

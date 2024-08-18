@@ -55,7 +55,7 @@ const TeamMembers = () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       {TeamMembers.map((member, idx) => (
-        <div className="flex items-stretch justify-start m-2 " key={idx}>
+        <div className="flex items-stretch shadow-lg p-6 rounded-xl justify-start m-2 " key={idx}>
           <div className="flex flex-col">
             <div className="flex justify-start items-center gap-8">
               <div className=" w-[100px] h-[100px] rounded-full aspect-square">
@@ -73,7 +73,7 @@ const TeamMembers = () => {
                 <h2 className="font-semibold text-lg text-blue-950 capitalize">
                   {member.name}
                 </h2>
-                <p className="text-gray-500 text-base lowercase">
+                <p className="text-gray-500 text-sm capitalise">
                   {member.title}
                 </p>
               </div>

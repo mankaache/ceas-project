@@ -81,7 +81,7 @@ const WhoWeAre = () => {
           </p>
         </div>
       </div>
-      <p className="w-[80%] my-12 text-lg mx-auto text-justify"> Le CEAS-GRNE en tant que expertise technique dédié à la formation en surveillance de la
+      <p className="w-[80%] my-12 text-lg mx-auto text-justify"> Le CEAS-GRNE en tant que hub d'expertise technique dédié à la formation en surveillance de la
             gestion des ressources naturelles, est l’option la plus convenable
             dans la région car il répond à la fois aux besoins de consolidation
             des acquis et d’innovation des techniques, de partage d’expérience,
