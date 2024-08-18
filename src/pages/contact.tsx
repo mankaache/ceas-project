@@ -48,15 +48,15 @@ const Contact = () => {
           >
             <div className={"flex w-full flex-col space-y-8 justify-between"}>
               <div>
-                <h1 className={"font-bold text-4xl text-white tracking-wide"}>
+                <h1 className={"font-bold text-5xl text-white tracking-wide"}>
                   Contactez-nous
                 </h1>
-                <p className={"pt-2 text-white text-base "}>
+                {/* <p className={"pt-2 text-white text-base "}>
                   Lorem Ipsum is dummy text of the printing and typesetting
                   industry. Lorem Ipsum has been the industry's standard dummy
                   text ever since the 1500s, when an unknown printer took a
                   galle
-                </p>
+                </p> */}
               </div>
               <div className={"flex flex-col space-y-4"}>
                 <div className={"flex text-white items-center gap-2"}>

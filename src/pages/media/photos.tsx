@@ -42,7 +42,7 @@ const Photos = () => {
 
   const filteredPhotos = React.useMemo(() => {
     return (
-      photos?.filter((photo) => {
+      photos?.reverse().filter((photo) => {
         // if (category === "tout") {
         //   return true;
         // }
