@@ -12,13 +12,13 @@ import { InnerPageLoader } from "@/components/loaders";
 import { InnerPageError } from "@/components/errors";
 import dayjs from "dayjs";
 
-const ActualiteCard = () => {
+const HomeTrainingCard = () => {
     const router = useRouter();
     // const { eventCategory } = router.query;
   
     const [filteredEvents, loading, error] = useCollectionData(
       query(
-        collection(firestore, "events")
+        collection(firestore, "training-programs")
         // where("category", "==", eventCategory)
       )
     );
@@ -30,21 +30,10 @@ const ActualiteCard = () => {
 
     const eventsReverse = filteredEvents?.reverse()
 
-     const eventsToDisplay = eventsReverse?.slice(0, 4);
+     const eventsToDisplay = eventsReverse?.slice(0, 3);
   return (
-    <div>
-         {!Boolean(eventsToDisplay?.length) ? (
-        <div className="flex items-center justify-center p-8">
-          <h1 className="text-3xl capitalize font-semibold">
-            {/* Pas de {eventCategoryMap[eventCategory as string]} */}
-            aucun événement trouvé pour l'instant
-          </h1>
-        </div>
-      ) : (
-        <div className={"pb-24  px-2 w-[96%] mx-auto"}>
-          
-          <div className={"flex gap-7 flex-wrap items-start"}>
-            {eventsToDisplay?.map((item, idx) => (
+   <>
+      {eventsToDisplay?.map((item, idx) => (
               <div
                 key={idx}
                 className={
@@ -82,27 +71,20 @@ const ActualiteCard = () => {
                       </p>
                     </div>
                   </div>
-                  <p className={"text-base pb-3 text-light"}>{item.excerpt}</p>
-                  <p className="w-auto items-center inline px-4 py-1 rounded-lg text-sm bg-primary justify-center gap-2 text-white capitalize">
-             
-              {item.category}
-            </p>
+                  
                   <Link
                     className={
                       "pt-2 font-semibold inline-block text-center w-full text-primary text-base"
                     }
-                    href={`news/events/${item.slug}`}
+                    href={`training-programs/${item.slug}`}
                   >
                     Voir les détails
                   </Link>
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      )}
-    </div>
+   </>
   )
 }
 
-export default ActualiteCard
+export default HomeTrainingCard
