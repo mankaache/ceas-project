@@ -1,8 +1,18 @@
 import { commonImages } from "@/assets";
 import { FormationCards } from "../Cards";
 import { Button } from "@/components";
+import HomeTrainingCard from "../Cards/HomeTrainingCard";
 
 const SectionThree = () => {
+  const Home = [
+    {
+      title:
+        "Practiciens de l’observation independante des ressources forestieres",
+      slug: "practiciens-de-lobservation-independante-des-ressources-forestieres",
+      desc: "",
+      image: commonImages.Aboutus4,
+    },
+  ]
   return (
     <div className={"w-[95%] md:w-[90%] mb-20 mx-auto max-w-screen-2xl"}>
       <h3 className={"text-center text-3xl py-5 font-semibold pb-1"}>
@@ -16,25 +26,21 @@ const SectionThree = () => {
         Nous proposons des programmes de formation aux organisations partenaires
         et aux organisations individuelles
       </p>
-      <div className={"flex flex-wrap gap-6 items-stretch"}>
-        {[
-          {
-            title:
-              "Practiciens de l’observation independante des ressources forestieres",
-            slug: "practiciens-de-lobservation-independante-des-ressources-forestieres",
-            desc: "",
-            image: commonImages.Aboutus4,
-          },
-        ].map((program, idx) => (
-          <FormationCards
-            key={idx}
-            image={program.image}
-            title={program.title}
-            href={`/training-programs/${program.slug}`}
-            desc={program.desc}
-          />
-        ))}
-      </div>
+
+      <div className={"flex flex-wrap gap-6 items-start"}>
+          <>
+          <HomeTrainingCard/>
+          </>
+          {Home.map((item, idx) => (
+            <FormationCards
+              title={item.title}
+              href={`/training-programs/details`}
+              key={idx}
+              image={item.image}
+            />
+          ))}
+        </div>
+      
 
       <div className={"flex mt-12 justify-center items-center"}>
         <Button href={"/training-programs"} text={"Voir tout nos programmes de formations"} />
