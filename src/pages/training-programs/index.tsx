@@ -92,7 +92,7 @@ const Programs = () => {
                   />
                 </p>
                 <div className={"w-full py-3 px-2"}>
-                  <h3 className={"font-semibold text-2xl pt-2 pb-3"}>
+                  <h3 className={"font-semibold text-ellipsis truncate text-2xl pt-2 pb-3"}>
                     {item.title}
                   </h3>
                   <div className="flex items-center pb-3 justify-start text-xs text-slate-500 gap-4">
