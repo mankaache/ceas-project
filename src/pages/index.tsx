@@ -19,7 +19,7 @@ const Home = () => {
         <HomeCarousel />
       </div>
       <SectionTwo />
-      <SectionThree />
+      {/* <SectionThree /> */}
       <SectionFour />
       <SectionFive />
       {/* <div className={"bg-blue-900  w-full  py-10 "}>

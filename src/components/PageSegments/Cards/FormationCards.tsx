@@ -40,7 +40,7 @@ const FormationCards = ({
       />
     </p>
     <div className={"w-full py-3 px-2"}>
-      <h3 className={"font-semibold text-[1.3em] pt-2 pb-3"}>
+      <h3 className={"font-semibold text-[1.3em] pt-2 pb-3 "}>
         {title}
       </h3>
       

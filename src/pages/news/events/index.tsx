@@ -50,7 +50,16 @@ const EventCategory = () => {
           </h1>
 
           <div className={"flex gap-5 flex-wrap items-start"}>
-            {filteredEvents?.map((item, idx) => (
+            {filteredEvents?.sort((a, b) => {
+              const dateA = new Date(a.createdAt).getTime(); 
+              const dateB = new Date(b.createdAt).getTime();
+          
+          
+              if (isNaN(dateA)) return 1;
+              if (isNaN(dateB)) return -1;
+          
+              return dateA - dateB; 
+            }).map((item, idx) => (
               <div
                 key={idx}
                 className={
@@ -71,7 +80,7 @@ const EventCategory = () => {
                   />
                 </p>
                 <div className={"w-full py-3 px-2"}>
-                  <h3 className={"font-semibold text-2xl pt-2 pb-3"}>
+                  <h3 className={" text-ellipsis truncate font-semibold text-2xl pt-2 pb-3"}>
                     {item.title}
                   </h3>
                   <div className="flex items-center pb-3 justify-start text-xs text-slate-500 gap-4">
@@ -88,7 +97,7 @@ const EventCategory = () => {
                       </p>
                     </div>
                   </div>
-                  <p className={"text-base pb-3 text-light"}>{item.excerpt}</p>
+                  <p className={"text-base pb-3 text-light text-ellipsis truncate"}>{item.excerpt}</p>
                   <p className="w-auto items-center inline px-4 py-1 rounded-lg text-sm bg-primary justify-center gap-2 text-white capitalize">
              
               {item.category}

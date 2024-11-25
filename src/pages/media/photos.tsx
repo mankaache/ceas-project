@@ -103,7 +103,18 @@ const Photos = () => {
                   Aucune photo pour la catégorie sélectionnée
                 </div>
               ) : (
-                filteredPhotos.map((photo, idx) => (
+                filteredPhotos
+                .sort((a, b) => {
+                  const dateA = new Date(a.createdAt).getTime(); 
+                  const dateB = new Date(b.createdAt).getTime();
+              
+              
+                  if (isNaN(dateA)) return 1;
+                  if (isNaN(dateB)) return -1;
+              
+                  return dateA - dateB; 
+                })
+                .map((photo, idx) => (
                   <div key={idx} className="w-full sm:w-auto">
                     <div className=" sm:w-[16em]">
                     <div
