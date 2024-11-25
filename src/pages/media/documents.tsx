@@ -88,7 +88,16 @@ const Documents = () => {
                   Aucun document pour la catégorie sélectionnée
                 </div>
               ) : (
-                filteredDocs.map((doc, idx) => (
+                filteredDocs.sort((a, b) => {
+                  const dateA = new Date(a.createdAt).getTime(); 
+                  const dateB = new Date(b.createdAt).getTime();
+              
+              
+                  if (isNaN(dateA)) return 1;
+                  if (isNaN(dateB)) return -1;
+              
+                  return dateB - dateA; 
+                }).map((doc, idx) => (
                   <div key={idx} className="w-full md:w-[48%]">
                     <DocumentView key={idx} doc={doc as IDocument} />
                   </div>

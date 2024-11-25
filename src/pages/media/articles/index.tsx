@@ -108,7 +108,16 @@ const Articles = () => {
             </div> */}
 
             <div className="articles my-4 w-full flex flex-wrap items-stretch gap-12 md:gap-8">
-              {filteredArticles?.map((article, idx) => (
+              {filteredArticles?.sort((a, b) => {
+                  const dateA = new Date(a.createdAt).getTime(); 
+                  const dateB = new Date(b.createdAt).getTime();
+              
+              
+                  if (isNaN(dateA)) return 1;
+                  if (isNaN(dateB)) return -1;
+              
+                  return dateB - dateA; 
+                }).map((article, idx) => (
                 <div key={idx} className="article w-full md:w-[47%] lg:w-[31%]">
                   <Article article={article as IArticle} />
                 </div>

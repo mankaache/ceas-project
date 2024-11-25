@@ -51,15 +51,15 @@ const EventCategory = () => {
 
           <div className={"flex gap-5 flex-wrap items-start"}>
             {filteredEvents?.sort((a, b) => {
-              const dateA = new Date(a.createdAt).getTime(); 
-              const dateB = new Date(b.createdAt).getTime();
-          
-          
-              if (isNaN(dateA)) return 1;
-              if (isNaN(dateB)) return -1;
-          
-              return dateA - dateB; 
-            }).map((item, idx) => (
+                  const dateA = new Date(a.createdAt).getTime(); 
+                  const dateB = new Date(b.createdAt).getTime();
+              
+              
+                  if (isNaN(dateA)) return 1;
+                  if (isNaN(dateB)) return -1;
+              
+                  return dateB - dateA; 
+                }).map((item, idx) => (
               <div
                 key={idx}
                 className={
