@@ -71,7 +71,16 @@ const Programs = () => {
 
         <div className={"flex flex-wrap gap-6 items-start"}>
           <>
-          {formations?.map((item, idx) => (
+          {formations?.sort((a, b) => {
+                  const dateA = new Date(a.createdAt).getTime(); 
+                  const dateB = new Date(b.createdAt).getTime();
+              
+              
+                  if (isNaN(dateA)) return 1;
+                  if (isNaN(dateB)) return -1;
+              
+                  return dateB - dateA; 
+                }).map((item, idx) => (
               <div
                 key={idx}
                 className={
