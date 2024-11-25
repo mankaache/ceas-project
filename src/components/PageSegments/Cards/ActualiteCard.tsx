@@ -65,7 +65,7 @@ const ActualiteCard = () => {
                   />
                 </p>
                 <div className={"w-full py-3 px-2"}>
-                  <h3 className={"font-semibold text-2xl pt-2 pb-3"}>
+                  <h3 className={"font-semibold text-2xl pt-2 pb-3 text-ellipsis truncate"}>
                     {item.title}
                   </h3>
                   <div className="flex items-center pb-3 justify-start text-xs text-slate-500 gap-4">
@@ -82,14 +82,14 @@ const ActualiteCard = () => {
                       </p>
                     </div>
                   </div>
-                  <p className={"text-base pb-3 text-light"}>{item.excerpt}</p>
+                  <p className={"text-base pb-3 text-light text-ellipsis truncate"}>{item.excerpt}</p>
                   <p className="w-auto items-center inline px-4 py-1 rounded-lg text-sm bg-primary justify-center gap-2 text-white capitalize">
              
               {item.category}
             </p>
                   <Link
                     className={
-                      "pt-2 font-semibold inline-block text-center w-full text-primary text-base"
+                      "pt-4  font-semibold inline-block text-center w-full text-primary text-base"
                     }
                     href={`news/events/${item.slug}`}
                   >
