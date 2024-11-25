@@ -44,7 +44,16 @@ const ActualiteCard = () => {
         <div className={"pb-24  px-2 w-[96%] mx-auto"}>
           
           <div className={"flex gap-7 flex-wrap items-start"}>
-            {eventsToDisplay?.map((item, idx) => (
+            {eventsToDisplay?.sort((a, b) => {
+                  const dateA = new Date(a.createdAt).getTime(); 
+                  const dateB = new Date(b.createdAt).getTime();
+              
+              
+                  if (isNaN(dateA)) return 1;
+                  if (isNaN(dateB)) return -1;
+              
+                  return dateB - dateA; 
+                }).map((item, idx) => (
               <div
                 key={idx}
                 className={

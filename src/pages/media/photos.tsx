@@ -112,7 +112,7 @@ const Photos = () => {
                   if (isNaN(dateA)) return 1;
                   if (isNaN(dateB)) return -1;
               
-                  return dateA - dateB; 
+                  return dateB - dateA; 
                 })
                 .map((photo, idx) => (
                   <div key={idx} className="w-full sm:w-auto">

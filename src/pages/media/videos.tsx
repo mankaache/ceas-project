@@ -87,7 +87,16 @@ const Videos = () => {
                   Aucune video pour la catégorie sélectionnée
                 </div>
               ) : (
-                filteredVideos.map((video, idx) => (
+                filteredVideos?.sort((a, b) => {
+                  const dateA = new Date(a.createdAt).getTime(); 
+                  const dateB = new Date(b.createdAt).getTime();
+              
+              
+                  if (isNaN(dateA)) return 1;
+                  if (isNaN(dateB)) return -1;
+              
+                  return dateB - dateA; 
+                }).map((video, idx) => (
                   <div
                     key={idx}
                     className="rounded-lg hover:scale-[0.99] duration-300 relative w-full md:w-[49%] lg:w-[32%] aspect-square max-h-[250px] xl:max-h-[300px] cursor-pointer"
