@@ -81,7 +81,7 @@ const Articles = () => {
     <BaseLayout>
       <div className="w-full max-w-screen-lg py-4 mx-auto flex flex-col items-center justify-center gap-2">
         <h1 className="text-3xl md:text-4xl font-bold py-2">Les articles</h1>
-        <p className="p-2 px-7 w-full">Catégories</p>
+        <p className="p-2 px-7 w-full"></p>
             <div className="categories w-full flex px-5 flex-wrap items-center justify-start gap-2 mt-2 mb-8">
               {categoryLabels.map((cat, idx) => (
                 <Button

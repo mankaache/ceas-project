@@ -45,7 +45,6 @@ const EventCategory = () => {
       ) : (
         <div className={"pb-24 pt-2 md:pt-6  px-2 w-[96%] md:w-[85%] mx-auto"}>
           <h1 className={"font-bold text-3xl text-center py-4 capitalize"}>
-            {/* {eventCategoryMap[eventCategory as string]} */}
             Evenements
           </h1>
 
@@ -53,8 +52,6 @@ const EventCategory = () => {
             {filteredEvents?.sort((a, b) => {
                   const dateA = new Date(a.createdAt).getTime(); 
                   const dateB = new Date(b.createdAt).getTime();
-              
-              
                   if (isNaN(dateA)) return 1;
                   if (isNaN(dateB)) return -1;
               

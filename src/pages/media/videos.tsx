@@ -63,7 +63,7 @@ const Videos = () => {
             <h1 className="title text-3xl text-center mb-2 font-poppins">
               Videos
             </h1>
-            <p className="p-2">Catégories</p>
+            <p className="p-2"></p>
             <div className="categories flex flex-wrap gap-2 mt-2 mb-8">
               {categoryLabels?.map((cat, idx) => (
                 <Button
