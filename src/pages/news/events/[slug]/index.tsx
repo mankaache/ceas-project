@@ -43,6 +43,8 @@ const Event = () => {
 
   if (error) return <InnerPageError error={error} />;
 
+
+
   return (
     <BaseLayout>
       {!event ? (
