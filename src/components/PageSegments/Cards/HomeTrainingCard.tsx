@@ -11,6 +11,7 @@ import { firestore } from "@/firebase/config";
 import { InnerPageLoader } from "@/components/loaders";
 import { InnerPageError } from "@/components/errors";
 import dayjs from "dayjs";
+import { slugify } from "@/utils/slugify";
 
 const HomeTrainingCard = () => {
     const router = useRouter();
@@ -76,7 +77,7 @@ const HomeTrainingCard = () => {
                     className={
                       "pt-2 font-semibold inline-block text-center w-full text-primary text-base"
                     }
-                    href={`training-programs/${item.slug}`}
+                    href={`training-programs/${slugify(item.slug)}`}
                   >
                     Voir les détails
                   </Link>

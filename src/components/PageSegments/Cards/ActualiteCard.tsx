@@ -11,29 +11,40 @@ import { firestore } from "@/firebase/config";
 import { InnerPageLoader } from "@/components/loaders";
 import { InnerPageError } from "@/components/errors";
 import dayjs from "dayjs";
+import { slugify } from "@/utils/slugify";
 
 const ActualiteCard = () => {
-    const router = useRouter();
-    // const { eventCategory } = router.query;
-  
-    const [filteredEvents, loading, error] = useCollectionData(
-      query(
-        collection(firestore, "events")
-        // where("category", "==", eventCategory)
-      )
-    );
-  
-    if (loading) return <InnerPageLoader loading={loading} />;
-  
-    if (error) return <InnerPageError error={error} />;
- 
+  const router = useRouter();
+  // const { eventCategory } = router.query;
 
-    const eventsReverse = filteredEvents?.reverse()
+  const [filteredEvents, loading, error] = useCollectionData(
+    query(
+      collection(firestore, "events")
+      // where("category", "==", eventCategory)
+    )
+  );
 
-     const eventsToDisplay = eventsReverse?.slice(0, 4);
+  if (loading) return <InnerPageLoader loading={loading} />;
+
+  if (error) return <InnerPageError error={error} />;
+  // const eventsReverse = filteredEvents?.reverse()
+  const eventsToDisplay = filteredEvents
+    ?.slice() // important: avoid mutating original array
+    .sort((a, b) => {
+      const dateA = new Date(a.createdAt).getTime();
+      const dateB = new Date(b.createdAt).getTime();
+
+      if (isNaN(dateA)) return 1;
+      if (isNaN(dateB)) return -1;
+
+      return dateB - dateA;
+    })
+    .slice(0, 6);
+
+
   return (
     <div>
-         {!Boolean(eventsToDisplay?.length) ? (
+      {!Boolean(eventsToDisplay?.length) ? (
         <div className="flex items-center justify-center p-8">
           <h1 className="text-3xl capitalize font-semibold">
             {/* Pas de {eventCategoryMap[eventCategory as string]} */}
@@ -42,18 +53,9 @@ const ActualiteCard = () => {
         </div>
       ) : (
         <div className={"pb-24  px-2 w-[96%] mx-auto"}>
-          
+
           <div className={"flex gap-7 flex-wrap items-start"}>
-            {eventsToDisplay?.sort((a, b) => {
-                  const dateA = new Date(a.createdAt).getTime(); 
-                  const dateB = new Date(b.createdAt).getTime();
-              
-              
-                  if (isNaN(dateA)) return 1;
-                  if (isNaN(dateB)) return -1;
-              
-                  return dateB - dateA; 
-                }).map((item, idx) => (
+            {eventsToDisplay?.map((item, idx) => (
               <div
                 key={idx}
                 className={
@@ -93,14 +95,14 @@ const ActualiteCard = () => {
                   </div>
                   <p className={"text-base pb-3 text-light text-ellipsis truncate"}>{item.excerpt}</p>
                   <p className="w-auto items-center inline px-4 py-1 rounded-lg text-sm bg-primary justify-center gap-2 text-white capitalize">
-             
-              {item.category}
-            </p>
+
+                    {item.category}
+                  </p>
                   <Link
                     className={
                       "pt-4  font-semibold inline-block text-center w-full text-primary text-base"
                     }
-                    href={`news/events/${item.slug}`}
+                    href={`news/events/${slugify(item.slug)}`}
                   >
                     Voir les détails
                   </Link>

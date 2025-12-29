@@ -62,7 +62,7 @@ const TeamMembers = () => {
                 <Image
                   // @ts-ignore
                   src={member.image}
-                  className="rounded-full border-4 border-secondary aspect-square"
+                  className="rounded-full border-4 border-secondary object-cover aspect-square"
                   alt={member.title}
                   width={100}
                   height={100}
