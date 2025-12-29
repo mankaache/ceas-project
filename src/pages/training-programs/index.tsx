@@ -13,6 +13,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
+import { slugify } from "@/utils/slugify";
 const Programs = () => {
 
   const FORMATIONS = React.useMemo(
@@ -51,15 +52,15 @@ const Programs = () => {
 
 
 
-  const formations = filteredFormations?.reverse()
- 
+  // const formations = filteredFormations
+
 
   return (
     <BaseLayout>
       <div className={"w-[95%] md:w-[90%] max-w-screen-2xl mx-auto pb-20 pt-2"}>
         <div className='relative w-[80%] mx-auto h-[80vh]'>
 
-        <Image src={commonImages.trainingProgram} alt="training program" priority fill/>
+          <Image src={commonImages.trainingProgram} alt="training program" priority fill />
         </div>
         <h3
           className={
@@ -71,16 +72,24 @@ const Programs = () => {
 
         <div className={"flex flex-wrap gap-6 items-start"}>
           <>
-          {formations?.sort((a, b) => {
-                  const dateA = new Date(a.createdAt).getTime(); 
-                  const dateB = new Date(b.createdAt).getTime();
-              
-              
-                  if (isNaN(dateA)) return 1;
-                  if (isNaN(dateB)) return -1;
-              
-                  return dateB - dateA; 
-                }).map((item, idx) => (
+            {FORMATIONS.map((item, idx) => (
+              <FormationCards
+                title={item.title}
+                href={`/training-programs/details`}
+                key={idx}
+                image={item.image}
+              />
+            ))}
+            {filteredFormations?.sort((a, b) => {
+              const dateA = new Date(a.createdAt).getTime();
+              const dateB = new Date(b.createdAt).getTime();
+
+
+              if (isNaN(dateA)) return 1;
+              if (isNaN(dateB)) return -1;
+
+              return dateB - dateA;
+            }).map((item, idx) => (
               <div
                 key={idx}
                 className={
@@ -118,12 +127,12 @@ const Programs = () => {
                       </p>
                     </div>
                   </div>
-                  
+
                   <Link
                     className={
                       "pt-2 font-semibold inline-block text-center w-full text-primary text-base"
                     }
-                    href={`training-programs/${item.slug}`}
+                    href={`training-programs/${slugify(item.slug)}`}
                   >
                     Voir les détails
                   </Link>
@@ -132,14 +141,7 @@ const Programs = () => {
             ))}
 
           </>
-          {FORMATIONS.map((item, idx) => (
-            <FormationCards
-              title={item.title}
-              href={`/training-programs/details`}
-              key={idx}
-              image={item.image}
-            />
-          ))}
+
         </div>
       </div>
     </BaseLayout>

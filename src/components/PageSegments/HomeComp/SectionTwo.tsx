@@ -17,7 +17,7 @@ const SectionTwo = () => {
               priority
               src={commonImages.Aboutus1}
               alt={"about us"}
-              className="rounded-tl-[70px] "
+              className="rounded-tl-[70px] object-cover "
             />
           </div>
           <div className={"size-[140px] md:size-[220px]  relative"}>
@@ -26,7 +26,7 @@ const SectionTwo = () => {
               priority
               src={commonImages.Aboutus2}
               alt={"about us"}
-              className="rounded-tr-[70px]"
+              className="rounded-tr-[70px] object-cover "
             />
           </div>
           <div
@@ -39,7 +39,7 @@ const SectionTwo = () => {
               priority
               src={commonImages.Aboutus3}
               alt={"about us"}
-              className="rounded-bl-[70px]"
+              className="rounded-bl-[70px] object-cover "
             />
           </div>
           <div
@@ -52,7 +52,7 @@ const SectionTwo = () => {
               priority
               src={commonImages.Aboutus4}
               alt={"about us"}
-              className="rounded-br-[70px]"
+              className="rounded-br-[70px] object-cover "
             />
           </div>
         </div>

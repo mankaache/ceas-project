@@ -20,7 +20,7 @@ import partner3 from "~/public/images/partners/partner-3.png";
 import partner4 from "~/public/images/WhatsApp_Image_2024-08-06_at_05.18.58_057ae82f-removebg-preview.png";
 import partner5 from "~/public/images/WhatsApp Image 2024-08-06 at 05.23.23_ccc885cb.jpg";
 
-import carousel1 from "~/public/images/carousel1.jpg";
+import carousel1 from "~/public/images/carousel1.jpeg";
 // import carousel2 from "~/public/images/carousel2.jpg";
 import carousel3 from "~/public/images/carousel-1.jpg";
 import carousel4 from "~/public/images/carousel-2.jpg";

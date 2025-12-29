@@ -2,11 +2,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { commonImages } from "@/assets";
-import { IEvent } from "@/models";
-import {  FaTags } from "react-icons/fa6";
-import { Button } from "@/components/ui/button";
-import { EVENTS, eventCategoryMap } from "@/data";
 import { BaseLayout } from "@/components";
 import { TfiLocationPin } from "react-icons/tfi";
 import { FaCalendar } from "react-icons/fa6";
@@ -17,6 +12,7 @@ import { firestore } from "@/firebase/config";
 import { InnerPageLoader } from "@/components/loaders";
 import { InnerPageError } from "@/components/errors";
 import dayjs from "dayjs";
+import { slugify } from "@/utils/slugify";
 
 const EventCategory = () => {
   const router = useRouter();
@@ -50,13 +46,13 @@ const EventCategory = () => {
 
           <div className={"flex gap-5 flex-wrap items-start"}>
             {filteredEvents?.sort((a, b) => {
-                  const dateA = new Date(a.createdAt).getTime(); 
-                  const dateB = new Date(b.createdAt).getTime();
-                  if (isNaN(dateA)) return 1;
-                  if (isNaN(dateB)) return -1;
-              
-                  return dateB - dateA; 
-                }).map((item, idx) => (
+              const dateA = new Date(a.createdAt).getTime();
+              const dateB = new Date(b.createdAt).getTime();
+              if (isNaN(dateA)) return 1;
+              if (isNaN(dateB)) return -1;
+
+              return dateB - dateA;
+            }).map((item, idx) => (
               <div
                 key={idx}
                 className={
@@ -96,14 +92,14 @@ const EventCategory = () => {
                   </div>
                   <p className={"text-base pb-3 text-light text-ellipsis truncate"}>{item.excerpt}</p>
                   <p className="w-auto items-center inline px-4 py-1 rounded-lg text-sm bg-primary justify-center gap-2 text-white capitalize">
-             
-              {item.category}
-            </p>
+
+                    {item.category}
+                  </p>
                   <Link
                     className={
                       "pt-2 font-semibold inline-block text-center w-full text-primary text-base"
                     }
-                    href={`events/${item.slug}`}
+                    href={`events/${slugify(item.slug)}`}
                   >
                     Voir les détails
                   </Link>

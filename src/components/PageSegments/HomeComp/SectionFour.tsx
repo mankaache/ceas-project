@@ -19,47 +19,6 @@ const SectionFour = () => {
         et proposons également de nombreuses opportunités de stages
       </p>
 
-      {/* <div
-        className={
-          "event flex flex-wrap justify-center items-start mt-6 md:mt-8 gap-6 pb-6 [&>div:last]:text-red-500"
-        }
-      >
-        {[
-          {
-            title: "Conférences",
-            linkText: "Voir les conférences",
-            href: "/events/conference",
-            image: commonImages.Aboutus1,
-          },
-
-          {
-            title: "Excursions",
-            linkText: "Voir nos sorties scolaires",
-            href: "/events/field-trips",
-            image: commonImages.Aboutus2,
-          },
-
-          {
-            title: "Défenses",
-            linkText: "Voir nos défenses",
-            href: "/events/defenses",
-            image: commonImages.Aboutus1,
-          },
-
-          // {
-          //   title: "Possibilités de stages",
-          //   linkText: "Voir les offres de stages",
-          //   href: "/events/internship-opportunities",
-          //   image: commonImages.Aboutus4,
-          // },
-        ].map((event, idx) => (
-          <EventCard
-            key={idx}
-            title={event.title}
-            image={event.image}
-          />
-        ))}
-      </div> */}
 
       <ActualiteCard/>
       <div className={"flex mt-12 justify-center items-center"}>

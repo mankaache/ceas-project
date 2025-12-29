@@ -19,6 +19,7 @@ import { cn } from "@/lib/utils";
 import React from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { FaCircleUser, FaTags } from "react-icons/fa6";
+import { slugify } from "@/utils/slugify";
 
 
 function formatDate(dateString: string): string {
@@ -201,7 +202,7 @@ const Article = ({ article }: { article: IArticle }) => (
         ))}
       </div>
 
-      <Link href={`articles/${article.slug}`}>
+      <Link href={`articles/${slugify(article.slug)}`}>
         <h2 className="title text-2xl font-semibold hover:underline transition-all duration-300">
           {article.title}
         </h2>
